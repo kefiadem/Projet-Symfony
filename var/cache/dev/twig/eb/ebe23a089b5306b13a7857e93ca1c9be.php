@@ -1,0 +1,1316 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\CoreExtension;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+use Twig\TemplateWrapper;
+
+/* home/index.html.twig */
+class __TwigTemplate_fe997e700e760eb2b92e089aaaccf0da extends Template
+{
+    private Source $source;
+    /**
+     * @var array<string, Template>
+     */
+    private array $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'body' => [$this, 'block_body'],
+        ];
+    }
+
+    protected function doGetParent(array $context): bool|string|Template|TemplateWrapper
+    {
+        // line 1
+        return "base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/index.html.twig"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/index.html.twig"));
+
+        $this->parent = $this->load("base.html.twig", 1);
+        yield from $this->parent->unwrap()->yield($context, array_merge($this->blocks, $blocks));
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 3
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_title(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        yield "Welcome to FashionShop";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 5
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_body(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        // line 6
+        yield "    ";
+        // line 7
+        yield "
+    ";
+        // line 9
+        yield "    <section id=\"billboard\" class=\"home-slider slide-clip slide-in\" data-bs-theme=\"dark\">
+        <div class=\"swiper overflow-hidden\" style=\"height: 100vh;\">
+            <div class=\"swiper-wrapper\">
+                <div class=\"swiper-slide jarallax py-5 d-flex align-items-center\">
+                    <img src=\"images/banner-large-image3.jpg\" class=\"jarallax-img\" alt=\"banner\">
+                    <div class=\"container\">
+                        <div class=\"row justify-content-center banner-item text-center align-items-center\">
+                            <div class=\"banner-content col-lg-7 py-md-5\">
+                                <h2 class=\"display-1 txt-fx slide-up\">Timeless Elegance</h2>
+                                <p class=\"text-white\">Sed condimentum ipsum, ultrices in aliquam ac hendrerit diam praesent. Ac dui convallis elit odio eget a commodo. Commodo eget natoque aliquam vitae pellentesque euismod suscipit id vulputate.</p>
+                                <button href=\"#\" class=\"button button--bestia text-uppercase mt-3\">
+                                    <div class=\"button__bg\"></div><span>Shop Collection</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"swiper-slide jarallax py-5 d-flex align-items-center\">
+                    <img src=\"images/banner-large-image2.jpg\" class=\"jarallax-img\" alt=\"banner\">
+                    <div class=\"container\">
+                        <div class=\"row justify-content-center banner-item text-center align-items-center\">
+                            <div class=\"banner-content col-lg-7 py-md-5\">
+                                <h2 class=\"display-1 txt-fx slide-up\">Unmatched Craftsmanship</h2>
+                                <p class=\"text-white\">Sed condimentum ipsum, ultrices in aliquam ac hendrerit diam praesent. Ac dui convallis elit odio eget a commodo. Commodo eget natoque aliquam vitae pellentesque euismod suscipit id vulputate.</p>
+                                <button href=\"#\" class=\"button button--bestia text-uppercase mt-3\">
+                                    <div class=\"button__bg\"></div><span>Shop Collection</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"swiper-slide jarallax py-5 d-flex align-items-center\">
+                    <img src=\"images/banner-large-image1.jpg\" class=\"jarallax-img\" alt=\"banner\">
+                    <div class=\"container\">
+                        <div class=\"row justify-content-center banner-item text-center align-items-center\">
+                            <div class=\"banner-content col-lg-7 py-md-5\">
+                                <h2 class=\"display-1 txt-fx slide-up\">100% Genuine Leather</h2>
+                                <p class=\"text-white\">Sed condimentum ipsum, ultrices in aliquam ac hendrerit diam praesent. Ac dui convallis elit odio eget a commodo. Commodo eget natoque aliquam vitae pellentesque euismod suscipit id vulputate.</p>
+                                <button href=\"#\" class=\"button button--bestia text-uppercase mt-3\">
+                                    <div class=\"button__bg\"></div><span>Shop Collection</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"swiper-pagination\"></div>
+        </div>
+        <div class=\"icon-arrow icon-arrow-left\"><svg width=\"50\" height=\"50\" viewBox=\"0 0 24 24\"><use xlink:href=\"#angle-left\"></use></svg></div>
+        <div class=\"icon-arrow icon-arrow-right\"><svg width=\"50\" height=\"50\" viewBox=\"0 0 24 24\"><use xlink:href=\"#angle-right\"></use></svg></div>
+    </section>
+
+    <section class=\"features py-5\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"0\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-1\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">100% Genuine Leather</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"300\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-2\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Hand-Stitched Perfection</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"600\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-3\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Minimalist</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"900\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-4\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Functional Designs</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"0\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-5\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Ethically Crafted</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"300\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-6\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Free Worldwide Shipping</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"600\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-7\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Easy Returns</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"900\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-8\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Sustainable</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class=\"categories\">
+        <div class=\"container-fluid\">
+            <div class=\"row\">
+                <div class=\"col-md-4 cat-item position-relative\">
+                    <div class=\"image-holder\">
+                        <a href=\"shop-four-column-wide.html\"><img src=\"images/category-banner-1.jpg\" alt=\"categories\" class=\"product-image img-fluid\"></a>
+                        <div class=\"category-content position-absolute bottom-0 p-5 text-uppercase\">
+                            <h4 class=\"section-title text-white\">For Men</h4>
+                            <a href=\"shop-four-column-wide.html\" class=\"text-white btn-link\">Shop it Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"col-md-4 cat-item position-relative\">
+                    <div class=\"image-holder\">
+                        <a href=\"shop-four-column-wide.html\"><img src=\"images/category-banner-2.jpg\" alt=\"categories\" class=\"product-image img-fluid\"></a>
+                        <div class=\"category-content position-absolute bottom-0 p-5 text-uppercase\">
+                            <h4 class=\"section-title text-white\">For Women</h4>
+                            <a href=\"shop-four-column-wide.html\" class=\"text-white btn-link\">Shop it Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"col-md-4 cat-item position-relative\">
+                    <div class=\"image-holder\">
+                        <a href=\"shop-four-column-wide.html\"><img src=\"images/category-banner-3.jpg\" alt=\"categories\" class=\"product-image img-fluid\"></a>
+                        <div class=\"category-content position-absolute bottom-0 p-5 text-uppercase\">
+                            <h4 class=\"section-title text-white\">For Accessories</h4>
+                            <a href=\"shop-four-column-wide.html\" class=\"text-white btn-link\">Shop it Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class=\"product-grid py-5 bg-white\">
+        <div class=\"container\">
+            <div class=\"row justify-content-center text-center\">
+                <div class=\"col-lg-6 my-5\">
+                    <h3 class=\"text-primary display-2\">Featured Collection</h3>
+                    <span>Handmade leather bags for any occassion</span>
+                </div>
+            </div>
+            <div class=\"row\">
+
+                <div id=\"filters\" class=\"button-group d-flex gap-4 justify-content-center py-5\">
+                    <a href=\"#\" class=\"btn-link text-dark text-uppercase is-checked\" data-filter=\".bestsellers\">Best Sellers</a>
+                    <a href=\"#\" class=\"btn-link text-dark text-uppercase\" data-filter=\".newarrivals\">New Arrivals</a>
+                    <a href=\"#\" class=\"btn-link text-dark text-uppercase\" data-filter=\".bestreviewed\">Best Reviewed</a>
+                </div>
+
+                <div class=\"grid p-0 clearfix\">
+                    <!-- New Arrivals -->
+                    <div class=\"col-md-3 py-3 product-item link-effect newarrivals\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-1.jpg\" alt=\"Classic Leather Tote\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"element-title text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Vintage Leather Tote</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$295.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestsellers -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-2.jpg\" alt=\"Slim Leather Briefcase\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Executive Briefcase</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$355.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-3.jpg\" alt=\"Crossbody Leather Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Minimalist Crossbody</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$265.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Arrivals -->
+                    <div class=\"col-md-3 py-3 product-item link-effect newarrivals\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-4.jpg\" alt=\"Leather Backpack\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Explorer Backpack</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$320.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-5.jpg\" alt=\"Leather Clutch\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Evening Clutch</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$195.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestsellers + Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-6.jpg\" alt=\"Leather Duffle Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Weekender Duffle</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$375.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-7.jpg\" alt=\"Leather Messenger Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Vintage Messenger</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$285.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestsellers -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-8.jpg\" alt=\"Leather Satchel\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Classic Satchel</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$345.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Arrivals + Bestsellers -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers newarrivals\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-9.jpg\" alt=\"Leather Laptop Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Professional Laptop Bag</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$395.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-10.jpg\" alt=\"Leather Hobo Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Hobo Shoulder Bag</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$275.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-11.jpg\" alt=\"Italian Leather Belt Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Belt Bag - Chestnut</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$185.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestseller: Leather Travel Duffle -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-12.jpg\" alt=\"Full-Grain Leather Duffle Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Weekender Duffle</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$395.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestseller: Leather Portfolio -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-13.jpg\" alt=\"Slim Leather Portfolio\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Executive Portfolio</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$275.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestseller: Leather Crossbody -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-14.jpg\" alt=\"Minimalist Leather Crossbody Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Sienna Crossbody</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$245.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class=\"testimonials bg-primary text-white py-5\">
+        <div class=\"section-header text-center\">
+            <h3 class=\"section-title\">Reviews</h3>
+        </div>
+        <div class=\"swiper testimonial-swiper overflow-hidden\">
+            <div class=\"swiper-wrapper d-flex\">
+                <div class=\"swiper-slide\">
+                    <div class=\"testimonial-item text-center\">
+                        <blockquote>
+                            <p>“More than expected crazy soft, flexible and best fitted white simple denim shirt.”</p>
+                            <div class=\"review-title text-uppercase\">casual way</div>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class=\"swiper-slide\">
+                    <div class=\"testimonial-item text-center\">
+                        <blockquote>
+                            <p>“Best fitted white denim shirt more than expected crazy soft, flexible</p>
+                            <div class=\"review-title text-uppercase\">uptop</div>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class=\"swiper-slide\">
+                    <div class=\"testimonial-item text-center\">
+                        <blockquote>
+                            <p>“Best fitted white denim shirt more white denim than expected flexible crazy soft.”</p>
+                            <div class=\"review-title text-uppercase\">Denim craze</div>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class=\"swiper-slide\">
+                    <div class=\"testimonial-item text-center\">
+                        <blockquote>
+                            <p>“Best fitted white denim shirt more than expected crazy soft, flexible</p>
+                            <div class=\"review-title text-uppercase\">uptop</div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class=\"swiper-pagination\"></div>
+        </div>
+    </section>
+
+    <section class=\"blog bg-white text-dark py-5\">
+        <div class=\"container\">
+            <div class=\"d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3\">
+                <h4 class=\"text-uppercase text-dark\">Read Blog Posts</h4>
+                <a href=\"blog-classic.html\" class=\"btn-link text-dark\">View All</a>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-4\">
+                    <article class=\"post-item\">
+                        <div class=\"post-image\">
+                            <a href=\"single-post.html\">
+                                <img src=\"images/post-image1.jpg\" alt=\"image\" class=\"post-grid-image img-fluid\">
+                            </a>
+                        </div>
+                        <div class=\"post-content d-flex flex-wrap gap-2 my-3\">
+                            <div class=\"post-meta text-uppercase fs-6 text-muted\">
+                                <span class=\"post-category\">Fashion /</span>
+                                <span class=\"meta-day\"> jul 11, 2022</span>
+                            </div>
+                            <h5 class=\"post-title text-uppercase\">
+                                <a href=\"single-post.html\" class=\"text-dark\">How to look outstanding in pastel</a>
+                            </h5>
+                            <p>Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</p>
+                        </div>
+                    </article>
+                </div>
+                <div class=\"col-md-4\">
+                    <article class=\"post-item\">
+                        <div class=\"post-image\">
+                            <a href=\"single-post.html\">
+                                <img src=\"images/post-image2.jpg\" alt=\"image\" class=\"post-grid-image img-fluid\">
+                            </a>
+                        </div>
+                        <div class=\"post-content d-flex flex-wrap gap-2 my-3\">
+                            <div class=\"post-meta text-uppercase fs-6 text-muted\">
+                                <span class=\"post-category\">Fashion /</span>
+                                <span class=\"meta-day\"> jul 11, 2022</span>
+                            </div>
+                            <h5 class=\"post-title text-uppercase\">
+                                <a href=\"single-post.html\" class=\"text-dark\">Top 10 fashion trend for summer</a>
+                            </h5>
+                            <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
+                        </div>
+                    </article>
+                </div>
+                <div class=\"col-md-4\">
+                    <article class=\"post-item\">
+                        <div class=\"post-image\">
+                            <a href=\"single-post.html\">
+                                <img src=\"images/post-image3.jpg\" alt=\"image\" class=\"post-grid-image img-fluid\">
+                            </a>
+                        </div>
+                        <div class=\"post-content d-flex flex-wrap gap-2 my-3\">
+                            <div class=\"post-meta text-uppercase fs-6 text-muted\">
+                                <span class=\"post-category\">Fashion /</span>
+                                <span class=\"meta-day\"> jul 11, 2022</span>
+                            </div>
+                            <h5 class=\"post-title text-uppercase\">
+                                <a href=\"single-post.html\" class=\"text-dark\">Crazy fashion with unique moment</a>
+                            </h5>
+                            <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class=\"newsletter jarallax\">
+        <div class=\"container\">
+            <div class=\"row justify-content-center\">
+                <div class=\"col-md-8 py-5 my-5\">
+                    <div class=\"subscribe-header text-center pb-3\">
+                        <h3 class=\"section-title text-uppercase text-white\">Sign Up for Our Newsletter</h3>
+                    </div>
+                    <form id=\"form\" class=\"d-flex flex-wrap gap-2\">
+                        <input type=\"text\" name=\"email\" placeholder=\"Your Email Addresss\" class=\"form-control form-control-lg bg-white rounded-0\">
+                        <button class=\"btn btn-primary btn-lg text-uppercase w-100\">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <img src=\"images/bg-newsletter.jpg\" alt=\"newsletter\" class=\"jarallax-img img-fluid\" />
+    </section>
+
+    <section class=\"instagram bg-black py-5\" data-bs-theme=\"dark\">
+        <div class=\"container-fluid\">
+            <div class=\"row g-3\">
+                <h6 class=\"element-title text-center\">Follow us on Instagram</h6>
+                <div class=\"col-4 col-sm-4 col-md-4\">
+                    <div class=\"insta-item\">
+                        <a href=\"https://www.instagram.com/templatesjungle/\" target=\"_blank\">
+                            <img src=\"images/insta-item1.jpg\" alt=\"instagram\" class=\"insta-image img-fluid\">
+                        </a>
+                    </div>
+                </div>
+                <div class=\"col-4 col-sm-4 col-md-4\">
+                    <div class=\"insta-item\">
+                        <a href=\"https://www.instagram.com/templatesjungle/\" target=\"_blank\">
+                            <img src=\"images/insta-item2.jpg\" alt=\"instagram\" class=\"insta-image img-fluid\">
+                        </a>
+                    </div>
+                </div>
+                <div class=\"col-4 col-sm-4 col-md-4\">
+                    <div class=\"insta-item\">
+                        <a href=\"https://www.instagram.com/templatesjungle/\" target=\"_blank\">
+                            <img src=\"images/insta-item3.jpg\" alt=\"instagram\" class=\"insta-image img-fluid\">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getTemplateName(): string
+    {
+        return "home/index.html.twig";
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function isTraitable(): bool
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getDebugInfo(): array
+    {
+        return array (  105 => 9,  102 => 7,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+    }
+
+    public function getSourceContext(): Source
+    {
+        return new Source("{% extends 'base.html.twig' %}
+
+{% block title %}Welcome to FashionShop{% endblock %}
+
+{% block body %}
+    {# Include the header banner #}
+
+    {# Featured Categories #}
+    <section id=\"billboard\" class=\"home-slider slide-clip slide-in\" data-bs-theme=\"dark\">
+        <div class=\"swiper overflow-hidden\" style=\"height: 100vh;\">
+            <div class=\"swiper-wrapper\">
+                <div class=\"swiper-slide jarallax py-5 d-flex align-items-center\">
+                    <img src=\"images/banner-large-image3.jpg\" class=\"jarallax-img\" alt=\"banner\">
+                    <div class=\"container\">
+                        <div class=\"row justify-content-center banner-item text-center align-items-center\">
+                            <div class=\"banner-content col-lg-7 py-md-5\">
+                                <h2 class=\"display-1 txt-fx slide-up\">Timeless Elegance</h2>
+                                <p class=\"text-white\">Sed condimentum ipsum, ultrices in aliquam ac hendrerit diam praesent. Ac dui convallis elit odio eget a commodo. Commodo eget natoque aliquam vitae pellentesque euismod suscipit id vulputate.</p>
+                                <button href=\"#\" class=\"button button--bestia text-uppercase mt-3\">
+                                    <div class=\"button__bg\"></div><span>Shop Collection</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"swiper-slide jarallax py-5 d-flex align-items-center\">
+                    <img src=\"images/banner-large-image2.jpg\" class=\"jarallax-img\" alt=\"banner\">
+                    <div class=\"container\">
+                        <div class=\"row justify-content-center banner-item text-center align-items-center\">
+                            <div class=\"banner-content col-lg-7 py-md-5\">
+                                <h2 class=\"display-1 txt-fx slide-up\">Unmatched Craftsmanship</h2>
+                                <p class=\"text-white\">Sed condimentum ipsum, ultrices in aliquam ac hendrerit diam praesent. Ac dui convallis elit odio eget a commodo. Commodo eget natoque aliquam vitae pellentesque euismod suscipit id vulputate.</p>
+                                <button href=\"#\" class=\"button button--bestia text-uppercase mt-3\">
+                                    <div class=\"button__bg\"></div><span>Shop Collection</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"swiper-slide jarallax py-5 d-flex align-items-center\">
+                    <img src=\"images/banner-large-image1.jpg\" class=\"jarallax-img\" alt=\"banner\">
+                    <div class=\"container\">
+                        <div class=\"row justify-content-center banner-item text-center align-items-center\">
+                            <div class=\"banner-content col-lg-7 py-md-5\">
+                                <h2 class=\"display-1 txt-fx slide-up\">100% Genuine Leather</h2>
+                                <p class=\"text-white\">Sed condimentum ipsum, ultrices in aliquam ac hendrerit diam praesent. Ac dui convallis elit odio eget a commodo. Commodo eget natoque aliquam vitae pellentesque euismod suscipit id vulputate.</p>
+                                <button href=\"#\" class=\"button button--bestia text-uppercase mt-3\">
+                                    <div class=\"button__bg\"></div><span>Shop Collection</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"swiper-pagination\"></div>
+        </div>
+        <div class=\"icon-arrow icon-arrow-left\"><svg width=\"50\" height=\"50\" viewBox=\"0 0 24 24\"><use xlink:href=\"#angle-left\"></use></svg></div>
+        <div class=\"icon-arrow icon-arrow-right\"><svg width=\"50\" height=\"50\" viewBox=\"0 0 24 24\"><use xlink:href=\"#angle-right\"></use></svg></div>
+    </section>
+
+    <section class=\"features py-5\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"0\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-1\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">100% Genuine Leather</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"300\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-2\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Hand-Stitched Perfection</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"600\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-3\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Minimalist</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"900\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-4\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Functional Designs</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"0\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-5\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Ethically Crafted</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"300\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-6\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Free Worldwide Shipping</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"600\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-7\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Easy Returns</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+                <div class=\"col-md-3 text-dark\" data-aos=\"fade-in\" data-aos-delay=\"900\">
+                    <div class=\"py-md-3\">
+                        <svg class=\"text-secondary\" width=\"75\" height=\"75\"><use xlink:href=\"#random-8\"></use></svg>
+                        <h4 class=\"text-dark text-capitalize my-3\">Sustainable</h4>
+                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class=\"categories\">
+        <div class=\"container-fluid\">
+            <div class=\"row\">
+                <div class=\"col-md-4 cat-item position-relative\">
+                    <div class=\"image-holder\">
+                        <a href=\"shop-four-column-wide.html\"><img src=\"images/category-banner-1.jpg\" alt=\"categories\" class=\"product-image img-fluid\"></a>
+                        <div class=\"category-content position-absolute bottom-0 p-5 text-uppercase\">
+                            <h4 class=\"section-title text-white\">For Men</h4>
+                            <a href=\"shop-four-column-wide.html\" class=\"text-white btn-link\">Shop it Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"col-md-4 cat-item position-relative\">
+                    <div class=\"image-holder\">
+                        <a href=\"shop-four-column-wide.html\"><img src=\"images/category-banner-2.jpg\" alt=\"categories\" class=\"product-image img-fluid\"></a>
+                        <div class=\"category-content position-absolute bottom-0 p-5 text-uppercase\">
+                            <h4 class=\"section-title text-white\">For Women</h4>
+                            <a href=\"shop-four-column-wide.html\" class=\"text-white btn-link\">Shop it Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"col-md-4 cat-item position-relative\">
+                    <div class=\"image-holder\">
+                        <a href=\"shop-four-column-wide.html\"><img src=\"images/category-banner-3.jpg\" alt=\"categories\" class=\"product-image img-fluid\"></a>
+                        <div class=\"category-content position-absolute bottom-0 p-5 text-uppercase\">
+                            <h4 class=\"section-title text-white\">For Accessories</h4>
+                            <a href=\"shop-four-column-wide.html\" class=\"text-white btn-link\">Shop it Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class=\"product-grid py-5 bg-white\">
+        <div class=\"container\">
+            <div class=\"row justify-content-center text-center\">
+                <div class=\"col-lg-6 my-5\">
+                    <h3 class=\"text-primary display-2\">Featured Collection</h3>
+                    <span>Handmade leather bags for any occassion</span>
+                </div>
+            </div>
+            <div class=\"row\">
+
+                <div id=\"filters\" class=\"button-group d-flex gap-4 justify-content-center py-5\">
+                    <a href=\"#\" class=\"btn-link text-dark text-uppercase is-checked\" data-filter=\".bestsellers\">Best Sellers</a>
+                    <a href=\"#\" class=\"btn-link text-dark text-uppercase\" data-filter=\".newarrivals\">New Arrivals</a>
+                    <a href=\"#\" class=\"btn-link text-dark text-uppercase\" data-filter=\".bestreviewed\">Best Reviewed</a>
+                </div>
+
+                <div class=\"grid p-0 clearfix\">
+                    <!-- New Arrivals -->
+                    <div class=\"col-md-3 py-3 product-item link-effect newarrivals\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-1.jpg\" alt=\"Classic Leather Tote\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"element-title text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Vintage Leather Tote</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$295.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestsellers -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-2.jpg\" alt=\"Slim Leather Briefcase\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Executive Briefcase</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$355.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-3.jpg\" alt=\"Crossbody Leather Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Minimalist Crossbody</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$265.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Arrivals -->
+                    <div class=\"col-md-3 py-3 product-item link-effect newarrivals\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-4.jpg\" alt=\"Leather Backpack\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Explorer Backpack</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$320.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-5.jpg\" alt=\"Leather Clutch\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Evening Clutch</a>
+                                </h5>
+                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$195.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestsellers + Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-6.jpg\" alt=\"Leather Duffle Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Weekender Duffle</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$375.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-7.jpg\" alt=\"Leather Messenger Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Vintage Messenger</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$285.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestsellers -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-8.jpg\" alt=\"Leather Satchel\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Classic Satchel</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$345.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Arrivals + Bestsellers -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers newarrivals\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-9.jpg\" alt=\"Leather Laptop Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Professional Laptop Bag</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$395.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-10.jpg\" alt=\"Leather Hobo Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Hobo Shoulder Bag</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$275.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Reviewed -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestreviewed\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-11.jpg\" alt=\"Italian Leather Belt Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Belt Bag - Chestnut</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$185.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestseller: Leather Travel Duffle -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-12.jpg\" alt=\"Full-Grain Leather Duffle Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Weekender Duffle</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$395.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestseller: Leather Portfolio -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-13.jpg\" alt=\"Slim Leather Portfolio\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Executive Portfolio</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$275.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestseller: Leather Crossbody -->
+                    <div class=\"col-md-3 py-3 product-item link-effect bestsellers\">
+                        <div class=\"image-holder position-relative m-3\">
+                            <a href=\"single-product.html\">
+                                <img src=\"images/product-thumb-14.jpg\" alt=\"Minimalist Leather Crossbody Bag\" class=\"product-image img-fluid\">
+                            </a>
+                            <a href=\"wishlist.html\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                            </a>
+                            <div class=\"product-content\">
+                                <h5 class=\"text-uppercase fs-5 mt-3\">
+                                    <a href=\"single-product.html\" class=\"text-dark\">Sienna Crossbody</a>
+                                </h5>
+                                <a href=\"cart.html\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$245.00</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class=\"testimonials bg-primary text-white py-5\">
+        <div class=\"section-header text-center\">
+            <h3 class=\"section-title\">Reviews</h3>
+        </div>
+        <div class=\"swiper testimonial-swiper overflow-hidden\">
+            <div class=\"swiper-wrapper d-flex\">
+                <div class=\"swiper-slide\">
+                    <div class=\"testimonial-item text-center\">
+                        <blockquote>
+                            <p>“More than expected crazy soft, flexible and best fitted white simple denim shirt.”</p>
+                            <div class=\"review-title text-uppercase\">casual way</div>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class=\"swiper-slide\">
+                    <div class=\"testimonial-item text-center\">
+                        <blockquote>
+                            <p>“Best fitted white denim shirt more than expected crazy soft, flexible</p>
+                            <div class=\"review-title text-uppercase\">uptop</div>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class=\"swiper-slide\">
+                    <div class=\"testimonial-item text-center\">
+                        <blockquote>
+                            <p>“Best fitted white denim shirt more white denim than expected flexible crazy soft.”</p>
+                            <div class=\"review-title text-uppercase\">Denim craze</div>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class=\"swiper-slide\">
+                    <div class=\"testimonial-item text-center\">
+                        <blockquote>
+                            <p>“Best fitted white denim shirt more than expected crazy soft, flexible</p>
+                            <div class=\"review-title text-uppercase\">uptop</div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class=\"swiper-pagination\"></div>
+        </div>
+    </section>
+
+    <section class=\"blog bg-white text-dark py-5\">
+        <div class=\"container\">
+            <div class=\"d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3\">
+                <h4 class=\"text-uppercase text-dark\">Read Blog Posts</h4>
+                <a href=\"blog-classic.html\" class=\"btn-link text-dark\">View All</a>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-md-4\">
+                    <article class=\"post-item\">
+                        <div class=\"post-image\">
+                            <a href=\"single-post.html\">
+                                <img src=\"images/post-image1.jpg\" alt=\"image\" class=\"post-grid-image img-fluid\">
+                            </a>
+                        </div>
+                        <div class=\"post-content d-flex flex-wrap gap-2 my-3\">
+                            <div class=\"post-meta text-uppercase fs-6 text-muted\">
+                                <span class=\"post-category\">Fashion /</span>
+                                <span class=\"meta-day\"> jul 11, 2022</span>
+                            </div>
+                            <h5 class=\"post-title text-uppercase\">
+                                <a href=\"single-post.html\" class=\"text-dark\">How to look outstanding in pastel</a>
+                            </h5>
+                            <p>Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</p>
+                        </div>
+                    </article>
+                </div>
+                <div class=\"col-md-4\">
+                    <article class=\"post-item\">
+                        <div class=\"post-image\">
+                            <a href=\"single-post.html\">
+                                <img src=\"images/post-image2.jpg\" alt=\"image\" class=\"post-grid-image img-fluid\">
+                            </a>
+                        </div>
+                        <div class=\"post-content d-flex flex-wrap gap-2 my-3\">
+                            <div class=\"post-meta text-uppercase fs-6 text-muted\">
+                                <span class=\"post-category\">Fashion /</span>
+                                <span class=\"meta-day\"> jul 11, 2022</span>
+                            </div>
+                            <h5 class=\"post-title text-uppercase\">
+                                <a href=\"single-post.html\" class=\"text-dark\">Top 10 fashion trend for summer</a>
+                            </h5>
+                            <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
+                        </div>
+                    </article>
+                </div>
+                <div class=\"col-md-4\">
+                    <article class=\"post-item\">
+                        <div class=\"post-image\">
+                            <a href=\"single-post.html\">
+                                <img src=\"images/post-image3.jpg\" alt=\"image\" class=\"post-grid-image img-fluid\">
+                            </a>
+                        </div>
+                        <div class=\"post-content d-flex flex-wrap gap-2 my-3\">
+                            <div class=\"post-meta text-uppercase fs-6 text-muted\">
+                                <span class=\"post-category\">Fashion /</span>
+                                <span class=\"meta-day\"> jul 11, 2022</span>
+                            </div>
+                            <h5 class=\"post-title text-uppercase\">
+                                <a href=\"single-post.html\" class=\"text-dark\">Crazy fashion with unique moment</a>
+                            </h5>
+                            <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class=\"newsletter jarallax\">
+        <div class=\"container\">
+            <div class=\"row justify-content-center\">
+                <div class=\"col-md-8 py-5 my-5\">
+                    <div class=\"subscribe-header text-center pb-3\">
+                        <h3 class=\"section-title text-uppercase text-white\">Sign Up for Our Newsletter</h3>
+                    </div>
+                    <form id=\"form\" class=\"d-flex flex-wrap gap-2\">
+                        <input type=\"text\" name=\"email\" placeholder=\"Your Email Addresss\" class=\"form-control form-control-lg bg-white rounded-0\">
+                        <button class=\"btn btn-primary btn-lg text-uppercase w-100\">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <img src=\"images/bg-newsletter.jpg\" alt=\"newsletter\" class=\"jarallax-img img-fluid\" />
+    </section>
+
+    <section class=\"instagram bg-black py-5\" data-bs-theme=\"dark\">
+        <div class=\"container-fluid\">
+            <div class=\"row g-3\">
+                <h6 class=\"element-title text-center\">Follow us on Instagram</h6>
+                <div class=\"col-4 col-sm-4 col-md-4\">
+                    <div class=\"insta-item\">
+                        <a href=\"https://www.instagram.com/templatesjungle/\" target=\"_blank\">
+                            <img src=\"images/insta-item1.jpg\" alt=\"instagram\" class=\"insta-image img-fluid\">
+                        </a>
+                    </div>
+                </div>
+                <div class=\"col-4 col-sm-4 col-md-4\">
+                    <div class=\"insta-item\">
+                        <a href=\"https://www.instagram.com/templatesjungle/\" target=\"_blank\">
+                            <img src=\"images/insta-item2.jpg\" alt=\"instagram\" class=\"insta-image img-fluid\">
+                        </a>
+                    </div>
+                </div>
+                <div class=\"col-4 col-sm-4 col-md-4\">
+                    <div class=\"insta-item\">
+                        <a href=\"https://www.instagram.com/templatesjungle/\" target=\"_blank\">
+                            <img src=\"images/insta-item3.jpg\" alt=\"instagram\" class=\"insta-image img-fluid\">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+", "home/index.html.twig", "/home/lhadi/PhpstormProjects/tpweb/templates/home/index.html.twig");
+    }
+}
