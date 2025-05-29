@@ -19,22 +19,17 @@ final class ProductController extends AbstractController
             'category' => $category,
         ]);
     }
-    #[Route('/products/{id}', name: 'id_product')]
+    #[Route('/product/{id}', name: 'id_product')]
     public function getProduct(MenProductsRepository $repository,int $id): Response
     {
-        $products = $repository->findBy(['id' => $id]);
-        return $this->render('product/index.html.twig', [
-            'products' => $products,
+        $product = $repository->find($id);
+        if (!$product) {
+            throw $this->createNotFoundException('Product not found');
+        }
+        return $this->render('product/single.html.twig', [
+            'product' => $product,
         ]);
     }
-    #[Route('/products/add/{category}', name: 'add_men_product')]
-    public function add(MenProductsRepository $repository,String $category): Response
-    {
-        $products = $repository->findBy(['category' => $category]);
-        return $this->render('product/index.html.twig', [
-            'products' => $products,
-            'category' => $category,
-        ]);
-    }
+
 
 }
