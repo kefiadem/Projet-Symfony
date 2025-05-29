@@ -19,7 +19,7 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
-    'men_product' => [['category'], ['_controller' => 'App\\Controller\\ProductController::forhim'], [], [['variable', '/', '[^/]++', 'category', true], ['text', '/products']], [], [], []],
+    'products' => [['category'], ['_controller' => 'App\\Controller\\ProductController::forhim'], [], [['variable', '/', '[^/]++', 'category', true], ['text', '/products']], [], [], []],
     'id_product' => [['id'], ['_controller' => 'App\\Controller\\ProductController::getProduct'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], [], []],
     'App\Controller\HomeController::index' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
     'App\Controller\ProductController::forhim' => [['category'], ['_controller' => 'App\\Controller\\ProductController::forhim'], [], [['variable', '/', '[^/]++', 'category', true], ['text', '/products']], [], [], []],

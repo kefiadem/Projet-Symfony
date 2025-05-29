@@ -31,7 +31,9 @@ class __TwigTemplate_1abd1468bc3fbdcfc195751a9ce3328a extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
+            'scripts' => [$this, 'block_scripts'],
         ];
     }
 
@@ -60,7 +62,7 @@ class __TwigTemplate_1abd1468bc3fbdcfc195751a9ce3328a extends Template
 
     }
 
-    // line 2
+    // line 3
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -73,10 +75,68 @@ class __TwigTemplate_1abd1468bc3fbdcfc195751a9ce3328a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        // line 3
-        yield "    ";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 3, $this->source); })()), "html", null, true);
-        yield " Products
+        yield " Products";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 5
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_stylesheets(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        // line 6
+        yield "    ";
+        yield from $this->yieldParentBlock("stylesheets", $context, $blocks);
+        yield "
+    <style>
+        .product-item { display: none; }
+        .product-item.show { display: block; }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        .product-item {
+            width: 25%;
+            padding: 15px;
+        }
+        @media (max-width: 991px) {
+            .product-item {
+                width: 33.333%;
+            }
+        }
+        @media (max-width: 767px) {
+            .product-item {
+                width: 50%;
+            }
+        }
+        @media (max-width: 575px) {
+            .product-item {
+                width: 100%;
+            }
+        }
+        .btn-icon {
+            text-decoration: none;
+            color: inherit;
+            border: none;
+            outline: none;
+        }
+    </style>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -87,7 +147,7 @@ class __TwigTemplate_1abd1468bc3fbdcfc195751a9ce3328a extends Template
         yield from [];
     }
 
-    // line 6
+    // line 43
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -100,94 +160,170 @@ class __TwigTemplate_1abd1468bc3fbdcfc195751a9ce3328a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 7
-        yield "
-<section class=\"product-grid py-5 bg-white\">
-    <div class=\"container\">
-        <div class=\"row justify-content-center text-center\">
-            <div class=\"col-lg-6 my-5\">
-                <h3 class=\"text-primary display-2\">Featured Collection</h3>
-                <span>Handmade  ";
-        // line 13
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 13, $this->source); })()), "html", null, true);
-        yield " clothes for any occassion</span>
+        // line 44
+        yield "    <section class=\"product-grid py-5 bg-white\">
+        <div class=\"container\">
+            <div class=\"row justify-content-center text-center\">
+                <div class=\"col-lg-6 my-5\">
+                    <h3 class=\"text-primary display-2\">";
+        // line 48
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::upper($this->env->getCharset(), (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 48, $this->source); })())), "html", null, true);
+        yield " Collection</h3>
+                    <span>Handmade ";
+        // line 49
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 49, $this->source); })()), "html", null, true);
+        yield " clothes for any occasion</span>
+                </div>
             </div>
-        </div>
-        <div class=\"row\">
+            <div class=\"row\">
+                <div id=\"filters\" class=\"button-group d-flex gap-4 justify-content-center py-5\">
+                    <button class=\"btn-link text-dark text-uppercase is-checked\" data-filter=\"all\">All</button>
+                    <button class=\"btn-link text-dark text-uppercase\" data-filter=\"bestsellers\">Best Sellers</button>
+                    <button class=\"btn-link text-dark text-uppercase\" data-filter=\"newarrivals\">New Arrivals</button>
+                    <button class=\"btn-link text-dark text-uppercase\" data-filter=\"bestreviewed\">Best Reviewed</button>
+                </div>
 
-            <div id=\"filters\" class=\"button-group d-flex gap-4 justify-content-center py-5\">
-                <a href=\"#\" class=\"btn-link text-dark text-uppercase is-checked\" data-filter=\".bestsellers\">Best Sellers</a>
-                <a href=\"#\" class=\"btn-link text-dark text-uppercase\" data-filter=\".newarrivals\">New Arrivals</a>
-                <a href=\"#\" class=\"btn-link text-dark text-uppercase\" data-filter=\".bestreviewed\">Best Reviewed</a>
-            </div>
-
-            <div class=\"grid p-0 clearfix\">
-                ";
-        // line 25
+                <div class=\"grid\">
+                    ";
+        // line 61
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 25, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 61, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 26
-            yield "                    <div class=\"col-md-3 py-3 product-item link-effect ";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::join(CoreExtension::getAttribute($this->env, $this->source, $context["product"], "tags", [], "any", false, false, false, 26), " "), "html", null, true);
-            yield " ";
-            if ((CoreExtension::getAttribute($this->env, $this->source, $context["product"], "rating", [], "any", false, false, false, 26) >= 4.5)) {
-                yield "bestsellers";
+            // line 62
+            yield "                        ";
+            $context["classes"] = [];
+            // line 63
+            yield "                        ";
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["product"], "review", [], "any", false, false, false, 63) >= 4)) {
+                $context["classes"] = Twig\Extension\CoreExtension::merge((isset($context["classes"]) || array_key_exists("classes", $context) ? $context["classes"] : (function () { throw new RuntimeError('Variable "classes" does not exist.', 63, $this->source); })()), ["bestreviewed"]);
             }
+            // line 64
+            yield "                        ";
+            if (($this->extensions['Twig\Extension\CoreExtension']->convertDate(CoreExtension::getAttribute($this->env, $this->source, $context["product"], "ReleaseDate", [], "any", false, false, false, 64)) > $this->extensions['Twig\Extension\CoreExtension']->convertDate("-30days"))) {
+                $context["classes"] = Twig\Extension\CoreExtension::merge((isset($context["classes"]) || array_key_exists("classes", $context) ? $context["classes"] : (function () { throw new RuntimeError('Variable "classes" does not exist.', 64, $this->source); })()), ["newarrivals"]);
+            }
+            // line 65
+            yield "                        ";
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["product"], "stock", [], "any", false, false, false, 65) < 10)) {
+                $context["classes"] = Twig\Extension\CoreExtension::merge((isset($context["classes"]) || array_key_exists("classes", $context) ? $context["classes"] : (function () { throw new RuntimeError('Variable "classes" does not exist.', 65, $this->source); })()), ["bestsellers"]);
+            }
+            // line 66
+            yield "
+                        <div class=\"product-item link-effect ";
+            // line 67
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::join((isset($context["classes"]) || array_key_exists("classes", $context) ? $context["classes"] : (function () { throw new RuntimeError('Variable "classes" does not exist.', 67, $this->source); })()), " "), "html", null, true);
             yield "\">
-                        <div class=\"image-holder position-relative m-3\">
-                            <a href=\"";
-            // line 28
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+                            <div class=\"image-holder position-relative\">
+                                <a href=\"";
+            // line 69
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("id_product", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 69)]), "html", null, true);
             yield "\">
-                                <img src=\"";
-            // line 29
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . CoreExtension::getAttribute($this->env, $this->source, $context["product"], "image", [], "any", false, false, false, 29))), "html", null, true);
+                                    <img src=\"";
+            // line 70
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("" . CoreExtension::getAttribute($this->env, $this->source, $context["product"], "image", [], "any", false, false, false, 70))), "html", null, true);
             yield "\" alt=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 29), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 70), "html", null, true);
             yield "\" class=\"product-image img-fluid\">
-                            </a>
-                            <a href=\"#\" class=\"btn-icon btn-wishlist rounded-circle\">
-                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
-                            </a>
-                            <div class=\"product-content\">
-                                <h5 class=\"text-uppercase fs-5 mt-3\">
-                                    <a href=\"";
-            // line 36
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 36)]), "html", null, true);
+                                </a>
+                                <a href=\"#\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                                </a>
+                                <a href=\"#\" class=\"btn-icon btn-cart rounded-circle\">
+                                    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#cart\"></use></svg>
+                                </a>
+                                <div class=\"product-content\">
+                                    <h5 class=\"text-uppercase fs-5 mt-3\">
+                                        <a href=\"";
+            // line 80
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("id_product", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 80)]), "html", null, true);
             yield "\" class=\"text-dark\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 36), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 80), "html", null, true);
             yield "</a>
-                                </h5>
-                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\$";
-            // line 38
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["product"], "price", [], "any", false, false, false, 38), "html", null, true);
-            yield "</span></a>
+                                    </h5>
+                                    <span>€";
+            // line 82
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["product"], "price", [], "any", false, false, false, 82), "html", null, true);
+            yield "</span>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ";
+                    ";
             $context['_iterated'] = true;
         }
-        // line 42
+        // line 87
         if (!$context['_iterated']) {
-            // line 43
-            yield "                    <p class=\"text-center\">No products found for category <strong>";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 43, $this->source); })()), "html", null, true);
+            // line 88
+            yield "                        <p class=\"text-center w-100\">No products found for category <strong>";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 88, $this->source); })()), "html", null, true);
             yield "</strong>.</p>
-                ";
+                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['product'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 45
-        yield "            </div>
-
+        // line 90
+        yield "                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 95
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_scripts(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "scripts"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "scripts"));
+
+        // line 96
+        yield "    ";
+        yield from $this->yieldParentBlock("scripts", $context, $blocks);
+        yield "
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('#filters button');
+            const products = document.querySelectorAll('.product-item');
+
+            // Show all products initially
+            products.forEach(product => product.classList.add('show'));
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('is-checked'));
+                    this.classList.add('is-checked');
+
+                    // Filter products
+                    products.forEach(product => {
+                        product.classList.remove('show');
+                        if (filter === 'all') {
+                            product.classList.add('show');
+                        } else if (product.classList.contains(filter)) {
+                            product.classList.add('show');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -219,61 +355,136 @@ class __TwigTemplate_1abd1468bc3fbdcfc195751a9ce3328a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  185 => 45,  176 => 43,  174 => 42,  165 => 38,  158 => 36,  146 => 29,  142 => 28,  132 => 26,  127 => 25,  112 => 13,  104 => 7,  91 => 6,  77 => 3,  64 => 2,  41 => 1,);
+        return array (  295 => 96,  282 => 95,  267 => 90,  258 => 88,  256 => 87,  246 => 82,  239 => 80,  224 => 70,  220 => 69,  215 => 67,  212 => 66,  207 => 65,  202 => 64,  197 => 63,  194 => 62,  189 => 61,  174 => 49,  170 => 48,  164 => 44,  151 => 43,  103 => 6,  90 => 5,  66 => 3,  43 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
-{% block title %}
-    {{ category  }} Products
+
+{% block title %}{{ category }} Products{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .product-item { display: none; }
+        .product-item.show { display: block; }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        .product-item {
+            width: 25%;
+            padding: 15px;
+        }
+        @media (max-width: 991px) {
+            .product-item {
+                width: 33.333%;
+            }
+        }
+        @media (max-width: 767px) {
+            .product-item {
+                width: 50%;
+            }
+        }
+        @media (max-width: 575px) {
+            .product-item {
+                width: 100%;
+            }
+        }
+        .btn-icon {
+            text-decoration: none;
+            color: inherit;
+            border: none;
+            outline: none;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-
-<section class=\"product-grid py-5 bg-white\">
-    <div class=\"container\">
-        <div class=\"row justify-content-center text-center\">
-            <div class=\"col-lg-6 my-5\">
-                <h3 class=\"text-primary display-2\">Featured Collection</h3>
-                <span>Handmade  {{ category }} clothes for any occassion</span>
+    <section class=\"product-grid py-5 bg-white\">
+        <div class=\"container\">
+            <div class=\"row justify-content-center text-center\">
+                <div class=\"col-lg-6 my-5\">
+                    <h3 class=\"text-primary display-2\">{{ category | upper}} Collection</h3>
+                    <span>Handmade {{ category }} clothes for any occasion</span>
+                </div>
             </div>
-        </div>
-        <div class=\"row\">
+            <div class=\"row\">
+                <div id=\"filters\" class=\"button-group d-flex gap-4 justify-content-center py-5\">
+                    <button class=\"btn-link text-dark text-uppercase is-checked\" data-filter=\"all\">All</button>
+                    <button class=\"btn-link text-dark text-uppercase\" data-filter=\"bestsellers\">Best Sellers</button>
+                    <button class=\"btn-link text-dark text-uppercase\" data-filter=\"newarrivals\">New Arrivals</button>
+                    <button class=\"btn-link text-dark text-uppercase\" data-filter=\"bestreviewed\">Best Reviewed</button>
+                </div>
 
-            <div id=\"filters\" class=\"button-group d-flex gap-4 justify-content-center py-5\">
-                <a href=\"#\" class=\"btn-link text-dark text-uppercase is-checked\" data-filter=\".bestsellers\">Best Sellers</a>
-                <a href=\"#\" class=\"btn-link text-dark text-uppercase\" data-filter=\".newarrivals\">New Arrivals</a>
-                <a href=\"#\" class=\"btn-link text-dark text-uppercase\" data-filter=\".bestreviewed\">Best Reviewed</a>
-            </div>
+                <div class=\"grid\">
+                    {% for product in products %}
+                        {% set classes = [] %}
+                        {% if product.review >= 4 %}{% set classes = classes|merge(['bestreviewed']) %}{% endif %}
+                        {% if date(product.ReleaseDate) > date('-30days') %}{% set classes = classes|merge(['newarrivals']) %}{% endif %}
+                        {% if product.stock < 10 %}{% set classes = classes|merge(['bestsellers']) %}{% endif %}
 
-            <div class=\"grid p-0 clearfix\">
-                {% for product in products %}
-                    <div class=\"col-md-3 py-3 product-item link-effect {{ product.tags|join(' ') }} {% if product.rating >= 4.5 %}bestsellers{% endif %}\">
-                        <div class=\"image-holder position-relative m-3\">
-                            <a href=\"{{ path('product_show', { id: product.id }) }}\">
-                                <img src=\"{{ asset('images/' ~ product.image) }}\" alt=\"{{ product.name }}\" class=\"product-image img-fluid\">
-                            </a>
-                            <a href=\"#\" class=\"btn-icon btn-wishlist rounded-circle\">
-                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
-                            </a>
-                            <div class=\"product-content\">
-                                <h5 class=\"text-uppercase fs-5 mt-3\">
-                                    <a href=\"{{ path('product_show', { id: product.id }) }}\" class=\"text-dark\">{{ product.name }}</a>
-                                </h5>
-                                <a href=\"#\" class=\"text-decoration-none text-dark\" data-after=\"Add to cart\"><span>\${{ product.price }}</span></a>
+                        <div class=\"product-item link-effect {{ classes|join(' ') }}\">
+                            <div class=\"image-holder position-relative\">
+                                <a href=\"{{ path('id_product', { id: product.id }) }}\">
+                                    <img src=\"{{ asset('' ~ product.image) }}\" alt=\"{{ product.name }}\" class=\"product-image img-fluid\">
+                                </a>
+                                <a href=\"#\" class=\"btn-icon btn-wishlist rounded-circle\">
+                                    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#heart\"></use></svg>
+                                </a>
+                                <a href=\"#\" class=\"btn-icon btn-cart rounded-circle\">
+                                    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><use xlink:href=\"#cart\"></use></svg>
+                                </a>
+                                <div class=\"product-content\">
+                                    <h5 class=\"text-uppercase fs-5 mt-3\">
+                                        <a href=\"{{ path('id_product', { id: product.id }) }}\" class=\"text-dark\">{{ product.name }}</a>
+                                    </h5>
+                                    <span>€{{ product.price }}</span>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% else %}
-                    <p class=\"text-center\">No products found for category <strong>{{ category }}</strong>.</p>
-                {% endfor %}
+                    {% else %}
+                        <p class=\"text-center w-100\">No products found for category <strong>{{ category }}</strong>.</p>
+                    {% endfor %}
+                </div>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
+{% endblock %}
+{% block scripts %}
+    {{ parent() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('#filters button');
+            const products = document.querySelectorAll('.product-item');
 
+            // Show all products initially
+            products.forEach(product => product.classList.add('show'));
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('is-checked'));
+                    this.classList.add('is-checked');
+
+                    // Filter products
+                    products.forEach(product => {
+                        product.classList.remove('show');
+                        if (filter === 'all') {
+                            product.classList.add('show');
+                        } else if (product.classList.contains(filter)) {
+                            product.classList.add('show');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 {% endblock %}
 ", "product/index.html.twig", "/home/lhadi/PhpstormProjects/tpweb/templates/product/index.html.twig");
     }

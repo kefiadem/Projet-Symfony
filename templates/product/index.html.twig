@@ -1,51 +1,126 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-    {{ category  }} Products
+
+{% block title %}{{ category }} Products{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .product-item { display: none; }
+        .product-item.show { display: block; }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        .product-item {
+            width: 25%;
+            padding: 15px;
+        }
+        @media (max-width: 991px) {
+            .product-item {
+                width: 33.333%;
+            }
+        }
+        @media (max-width: 767px) {
+            .product-item {
+                width: 50%;
+            }
+        }
+        @media (max-width: 575px) {
+            .product-item {
+                width: 100%;
+            }
+        }
+        .btn-icon {
+            text-decoration: none;
+            color: inherit;
+            border: none;
+            outline: none;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-
-<section class="product-grid py-5 bg-white">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-6 my-5">
-                <h3 class="text-primary display-2">Featured Collection</h3>
-                <span>Handmade  {{ category }} clothes for any occassion</span>
+    <section class="product-grid py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-6 my-5">
+                    <h3 class="text-primary display-2">{{ category | upper}} Collection</h3>
+                    <span>Handmade {{ category }} clothes for any occasion</span>
+                </div>
             </div>
-        </div>
-        <div class="row">
+            <div class="row">
+                <div id="filters" class="button-group d-flex gap-4 justify-content-center py-5">
+                    <button class="btn-link text-dark text-uppercase is-checked" data-filter="all">All</button>
+                    <button class="btn-link text-dark text-uppercase" data-filter="bestsellers">Best Sellers</button>
+                    <button class="btn-link text-dark text-uppercase" data-filter="newarrivals">New Arrivals</button>
+                    <button class="btn-link text-dark text-uppercase" data-filter="bestreviewed">Best Reviewed</button>
+                </div>
 
-            <div id="filters" class="button-group d-flex gap-4 justify-content-center py-5">
-                <a href="#" class="btn-link text-dark text-uppercase is-checked" data-filter=".bestsellers">Best Sellers</a>
-                <a href="#" class="btn-link text-dark text-uppercase" data-filter=".newarrivals">New Arrivals</a>
-                <a href="#" class="btn-link text-dark text-uppercase" data-filter=".bestreviewed">Best Reviewed</a>
-            </div>
+                <div class="grid">
+                    {% for product in products %}
+                        {% set classes = [] %}
+                        {% if product.review >= 4 %}{% set classes = classes|merge(['bestreviewed']) %}{% endif %}
+                        {% if date(product.ReleaseDate) > date('-30days') %}{% set classes = classes|merge(['newarrivals']) %}{% endif %}
+                        {% if product.stock < 10 %}{% set classes = classes|merge(['bestsellers']) %}{% endif %}
 
-            <div class="grid p-0 clearfix">
-                {% for product in products %}
-                    <div class="col-md-3 py-3 product-item link-effect {{ product.tags|join(' ') }} {% if product.rating >= 4.5 %}bestsellers{% endif %}">
-                        <div class="image-holder position-relative m-3">
-                            <a href="{{ path('product_show', { id: product.id }) }}">
-                                <img src="{{ asset('images/' ~ product.image) }}" alt="{{ product.name }}" class="product-image img-fluid">
-                            </a>
-                            <a href="#" class="btn-icon btn-wishlist rounded-circle">
-                                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
-                            </a>
-                            <div class="product-content">
-                                <h5 class="text-uppercase fs-5 mt-3">
-                                    <a href="{{ path('product_show', { id: product.id }) }}" class="text-dark">{{ product.name }}</a>
-                                </h5>
-                                <a href="#" class="text-decoration-none text-dark" data-after="Add to cart"><span>${{ product.price }}</span></a>
+                        <div class="product-item link-effect {{ classes|join(' ') }}">
+                            <div class="image-holder position-relative">
+                                <a href="{{ path('id_product', { id: product.id }) }}">
+                                    <img src="{{ asset('' ~ product.image) }}" alt="{{ product.name }}" class="product-image img-fluid">
+                                </a>
+                                <a href="#" class="btn-icon btn-wishlist rounded-circle">
+                                    <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
+                                </a>
+                                <a href="#" class="btn-icon btn-cart rounded-circle">
+                                    <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
+                                </a>
+                                <div class="product-content">
+                                    <h5 class="text-uppercase fs-5 mt-3">
+                                        <a href="{{ path('id_product', { id: product.id }) }}" class="text-dark">{{ product.name }}</a>
+                                    </h5>
+                                    <span>€{{ product.price }}</span>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% else %}
-                    <p class="text-center">No products found for category <strong>{{ category }}</strong>.</p>
-                {% endfor %}
+                    {% else %}
+                        <p class="text-center w-100">No products found for category <strong>{{ category }}</strong>.</p>
+                    {% endfor %}
+                </div>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
+{% endblock %}
+{% block scripts %}
+    {{ parent() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('#filters button');
+            const products = document.querySelectorAll('.product-item');
 
+            // Show all products initially
+            products.forEach(product => product.classList.add('show'));
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('is-checked'));
+                    this.classList.add('is-checked');
+
+                    // Filter products
+                    products.forEach(product => {
+                        product.classList.remove('show');
+                        if (filter === 'all') {
+                            product.classList.add('show');
+                        } else if (product.classList.contains(filter)) {
+                            product.classList.add('show');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 {% endblock %}

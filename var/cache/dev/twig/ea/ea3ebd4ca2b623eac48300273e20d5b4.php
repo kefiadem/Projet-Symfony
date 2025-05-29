@@ -140,10 +140,10 @@ class __TwigTemplate_16cf117bca4a1dc1e3aaf5b8eef37bb9 extends Template
                 <div class=\"card product-single-card shadow-sm\">
                     ";
         // line 17
-        if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 17, $this->source); })()), "photo", [], "any", false, false, false, 17)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+        if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 17, $this->source); })()), "image", [], "any", false, false, false, 17)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
             // line 18
             yield "                        <img src=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 18, $this->source); })()), "photo", [], "any", false, false, false, 18))), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 18, $this->source); })()), "image", [], "any", false, false, false, 18))), "html", null, true);
             yield "\" class=\"card-img-top\" alt=\"";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 18, $this->source); })()), "name", [], "any", false, false, false, 18), "html", null, true);
             yield "\">
@@ -164,7 +164,7 @@ class __TwigTemplate_16cf117bca4a1dc1e3aaf5b8eef37bb9 extends Template
                         ";
         // line 25
         yield "                        ";
-        if (CoreExtension::getAttribute($this->env, $this->source, ($context["product"] ?? null), "rating", [], "any", true, true, false, 25)) {
+        if (CoreExtension::getAttribute($this->env, $this->source, ($context["product"] ?? null), "review", [], "any", true, true, false, 25)) {
             // line 26
             yield "                            <div class=\"mb-2\">
                             <span class=\"product-stars\">
@@ -175,7 +175,7 @@ class __TwigTemplate_16cf117bca4a1dc1e3aaf5b8eef37bb9 extends Template
             foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
                 // line 29
                 yield "                                    ";
-                if (($context["i"] <= CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 29, $this->source); })()), "rating", [], "any", false, false, false, 29))) {
+                if (($context["i"] <= CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 29, $this->source); })()), "review", [], "any", false, false, false, 29))) {
                     // line 30
                     yield "                                        <span class=\"star-full\">&#9733;</span>
                                     ";
@@ -194,7 +194,7 @@ class __TwigTemplate_16cf117bca4a1dc1e3aaf5b8eef37bb9 extends Template
             yield "                            </span>
                                 <span class=\"text-muted fs-6\">(";
             // line 36
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 36, $this->source); })()), "rating", [], "any", false, false, false, 36), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 36, $this->source); })()), "review", [], "any", false, false, false, 36), "html", null, true);
             yield "/5)</span>
                             </div>
                         ";
@@ -241,7 +241,7 @@ class __TwigTemplate_16cf117bca4a1dc1e3aaf5b8eef37bb9 extends Template
         }
         // line 56
         yield "                        <a href=\"";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_to_cart", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 56, $this->source); })()), "id", [], "any", false, false, false, 56)]), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("id_product", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 56, $this->source); })()), "id", [], "any", false, false, false, 56)]), "html", null, true);
         yield "\" class=\"btn btn-primary mt-3\">
                             <svg class=\"me-1\" width=\"20\" height=\"20\"><use xlink:href=\"#cart\"></use></svg>
                             Add to cart
@@ -330,26 +330,26 @@ class __TwigTemplate_16cf117bca4a1dc1e3aaf5b8eef37bb9 extends Template
         <div class=\"row justify-content-center\">
             <div class=\"col-md-8 col-lg-6\">
                 <div class=\"card product-single-card shadow-sm\">
-                    {% if product.photo %}
-                        <img src=\"{{ asset('uploads/' ~ product.photo) }}\" class=\"card-img-top\" alt=\"{{ product.name }}\">
+                    {% if product.image %}
+                        <img src=\"{{ asset('' ~ product.image) }}\" class=\"card-img-top\" alt=\"{{ product.name }}\">
                     {% else %}
                         <img src=\"{{ asset('images/no-image.png') }}\" class=\"card-img-top\" alt=\"No image available\">
                     {% endif %}
                     <div class=\"card-body\">
                         <h1 class=\"card-title\">{{ product.name }}</h1>
                         {# STAR RATING #}
-                        {% if product.rating is defined %}
+                        {% if product.review is defined %}
                             <div class=\"mb-2\">
                             <span class=\"product-stars\">
                                 {% for i in 1..5 %}
-                                    {% if i <= product.rating %}
+                                    {% if i <= product.review %}
                                         <span class=\"star-full\">&#9733;</span>
                                     {% else %}
                                         <span class=\"star-empty\">&#9733;</span>
                                     {% endif %}
                                 {% endfor %}
                             </span>
-                                <span class=\"text-muted fs-6\">({{ product.rating }}/5)</span>
+                                <span class=\"text-muted fs-6\">({{ product.review }}/5)</span>
                             </div>
                         {% endif %}
                         {# DATE #}
@@ -369,7 +369,7 @@ class __TwigTemplate_16cf117bca4a1dc1e3aaf5b8eef37bb9 extends Template
                                 <span class=\"text-success\">{{ product.price|number_format(2, '.', ',') }} €</span>
                             </div>
                         {% endif %}
-                        <a href=\"{{ path('add_to_cart', {'id': product.id}) }}\" class=\"btn btn-primary mt-3\">
+                        <a href=\"{{ path('id_product', {'id': product.id}) }}\" class=\"btn btn-primary mt-3\">
                             <svg class=\"me-1\" width=\"20\" height=\"20\"><use xlink:href=\"#cart\"></use></svg>
                             Add to cart
                         </a>

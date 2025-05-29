@@ -377,6 +377,9 @@
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
+    <service id="App\DataFixtures\ProductFixture" class="App\DataFixtures\ProductFixture" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
     <service id="App\Entity\MenProducts" class="App\Entity\MenProducts" autowire="true" autoconfigure="true">
       <tag name="container.excluded" source="because it's a Doctrine entity"/>
       <tag name="container.excluded" source="with #[Doctrine\ORM\Mapping\Entity] attribute"/>
@@ -7471,6 +7474,10 @@
             <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
             <argument key="groups" type="collection"/>
           </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\ProductFixture"/>
+            <argument key="groups" type="collection"/>
+          </argument>
         </argument>
       </call>
     </service>
@@ -7487,6 +7494,8 @@
     <service id=".abstract.instanceof.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ProductFixture" class="App\DataFixtures\ProductFixture" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\ProductFixture" class="App\DataFixtures\ProductFixture" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.App\Entity\MenProducts.0.App\Entity\MenProducts" class="App\Entity\MenProducts" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Entity\MenProducts" class="App\Entity\MenProducts" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MenProductsRepository" class="App\Repository\MenProductsRepository" autowire="true" abstract="true"/>

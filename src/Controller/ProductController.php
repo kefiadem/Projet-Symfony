@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class ProductController extends AbstractController
 {
-    #[Route('/products/{category}', name: 'men_product')]
+    #[Route('/products/{category}', name: 'products')]
     public function forhim(MenProductsRepository $repository,String $category): Response
     {
         $products = $repository->findBy(['category' => $category]);

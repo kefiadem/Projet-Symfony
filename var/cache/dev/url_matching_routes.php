@@ -52,7 +52,7 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        223 => [[['_route' => 'men_product', '_controller' => 'App\\Controller\\ProductController::forhim'], ['category'], null, null, false, true, null]],
+        223 => [[['_route' => 'products', '_controller' => 'App\\Controller\\ProductController::forhim'], ['category'], null, null, false, true, null]],
         240 => [
             [['_route' => 'id_product', '_controller' => 'App\\Controller\\ProductController::getProduct'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
