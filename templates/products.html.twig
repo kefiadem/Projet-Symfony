@@ -1,9 +1,3 @@
-{% extends 'base.html.twig' %}
-{% block title %}
-    {{ category | upper }} Products
-{% endblock %}
-
-{% block body %}
 
 <section class="product-grid py-5 bg-white">
     <div class="container">
@@ -23,7 +17,7 @@
 
             <div class="grid p-0 clearfix">
                 {% for product in products %}
-                    <div class="col-md-3 py-3 product-item link-effect {{ product.tags|join(' ') }} {% if product.rating >= 4.5 %}bestsellers{% endif %}">
+                    <div class="col-md-3 py-3 product-item link-effect {{ product.tags|join(' ') }} {{ if product.rating >= 4.5 }}bestsellers{{ endif }}">
                         <div class="image-holder position-relative m-3">
                             <a href="{{ path('product_show', { id: product.id }) }}">
                                 <img src="{{ asset('images/' ~ product.image) }}" alt="{{ product.name }}" class="product-image img-fluid">
@@ -47,5 +41,3 @@
         </div>
     </div>
 </section>
-
-{% endblock %}

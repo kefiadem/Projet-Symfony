@@ -38,6 +38,9 @@ class MenProducts
     #[ORM\Column(nullable: true)]
     private ?int $review = null;
 
+    #[ORM\Column]
+    private array $tags = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +138,18 @@ class MenProducts
     public function setReview(?int $review): static
     {
         $this->review = $review;
+
+        return $this;
+    }
+
+    public function getTags(): array
+    {
+        return $this->tags;
+    }
+
+    public function setTags(array $tags): static
+    {
+        $this->tags = $tags;
 
         return $this;
     }
