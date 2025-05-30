@@ -11,6 +11,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class ProductsForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -19,7 +20,16 @@ class ProductsForm extends AbstractType
             ->add('name')
             ->add('description')
             ->add('price')
-            ->add('category')
+            ->add('category', ChoiceType::class, [
+                'choices' => [
+                    'For Him'   => 'forhim',
+                    'For Her'   => 'forher',
+                    'Accessories' => 'accessories',
+                ],
+                'expanded' => true,      // Render as radio buttons
+                'multiple' => false,      // Only one selection allowed
+                'label' => 'Category',
+            ])
             ->add('image', FileType::class, [
                 'label' => "The image of the product",
 
