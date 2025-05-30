@@ -10,13 +10,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-#[Route('/admin', name: 'app_admin')]
+#[Route('/admin', name: 'app.admin')]
 final class AdminController extends AbstractController
 {
-    #[Route('/addproduct', name: 'app_admin')]
-    public function addProduct(ManagerRegistry $doctrine, Request $request): Response
+    #[Route('/updateproduct/{id?}', name: 'update.product')]
+    public function addProduct(MenProducts $product=null,ManagerRegistry $doctrine, Request $request): Response
     {
-        $product = new MenProducts();
+        $new=false;
+        if (!$product){
+            $new = true;
+            $product = new MenProducts();
+        }
         
         $form = $this->createForm(ProductsForm::class , $product);
 
@@ -26,7 +30,11 @@ final class AdminController extends AbstractController
             $entityManager = $doctrine->getManager();
             $entityManager->persist($product);
             $entityManager->flush();
-            $this->addFlash('success', $product->getName().' (ID: '.$product->getId().') added successfully!');
+            $msg=$product->getName().' (ID: '.$product->getId().') edited successfully!';
+            if ($new){ 
+                $msg=$product->getName().' (ID: '.$product->getId().') added successfully!';
+            }
+            $this->addFlash('success', $msg);
             return $this->redirectToRoute("/");
         }
         else{
