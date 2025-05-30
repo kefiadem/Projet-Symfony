@@ -22,6 +22,7 @@ class RegistrationController extends AbstractController
     {
     }
 
+    // src/Controller/RegistrationController.php
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
@@ -30,25 +31,41 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var string $plainPassword */
-            $plainPassword = $form->get('plainPassword')->getData();
+            // Handle image upload
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
 
-            // encode the plain password
-            $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+                try {
+                    $imageFile->move(
+                        $this->getParameter('kernel.project_dir').'/public/assets/UserImages',
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // Handle exception
+                }
+
+                $user->setImage($newFilename);
+            }
+
+            // Set password
+            $user->setPassword(
+                $userPasswordHasher->hashPassword($user, $form->get('plainPassword')->getData())
+            );
 
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // generate a signed url and email it to the user
+            // Send email verification...
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('graba.hadi@gmail.com', 'vintage store mail bot'))
-                    ->to((string) $user->getEmail())
+                    ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
-
-            // do anything else you need here, like send an email
 
             return $this->redirectToRoute('app_home');
         }
