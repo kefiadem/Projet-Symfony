@@ -48,6 +48,3 @@ phpunit.xml.dist
 # Other files you may want to ignore
 *.log
 *.cache
-
-# User uploads (if you have a public/uploads dir for file uploads)
-public/uploads/
