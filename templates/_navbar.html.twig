@@ -33,18 +33,7 @@
                                     <li>
                                         <a href="{{ path('app_home') }}" class="dropdown-item item-anchor">Single Product </a>
                                     </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownBlog" data-bs-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownBlog">
-                                    <li>
-                                        <a href="{{ path('app_home') }}" class="dropdown-item item-anchor">Blog </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('app_home') }}" class="dropdown-item item-anchor">Single Post </a>
-                                    </li>
+
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -64,11 +53,20 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#">Contact</a>
                             </li>
+                            <li class="nav-item">
+                                {# templates/base.html.twig (in your navbar) #}
+                                <div class="navbar-nav ms-auto">
+                                    {% if app.user %}
+                                        <a class="nav-item nav-link" href="{{ path('app_logout') }}">Logout</a>
+                                    {% else %}
+                                        <a class="nav-item nav-link" href="{{ path('app_login') }}">Login</a>
+                                        <a class="nav-item nav-link" href="{{ path('app_register') }}">Register</a>
+                                    {% endif %}
+                                </div>
+                            </li>
+
 
                         </ul>
                     </div>

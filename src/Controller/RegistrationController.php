@@ -22,7 +22,6 @@ class RegistrationController extends AbstractController
     {
     }
 
-    // src/Controller/RegistrationController.php
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {

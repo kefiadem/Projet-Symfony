@@ -1,0 +1,126 @@
+{# templates/security/login.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .login-container {
+            max-width: 500px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background-color: var(--bs-light);
+            position: relative;
+        }
+
+        .login-container h1 {
+            font-family: var(--heading-font);
+            font-size: 2.8rem;
+            color: var(--bs-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--bs-primary);
+            box-shadow: 0 0 0 0.25rem rgba(120, 92, 74, 0.25);
+            outline: none;
+        }
+
+        .btn-login {
+            background-color: var(--bs-primary);
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login:hover {
+            background-color: #654937;
+        }
+
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 0;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #842029;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .register-link a {
+            color: var(--bs-primary);
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="login-container">
+        <h1>Welcome Back</h1>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <form method="post" class="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="email" class="form-control" autocomplete="email" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" autocomplete="current-password" required>
+            </div>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <button class="btn-login w-100" type="submit">login</button>
+
+            <div class="register-link">
+                <span>Don't have an account? </span>
+                <a href="{{ path('app_register') }}">Register now</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
