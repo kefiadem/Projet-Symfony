@@ -1,0 +1,53 @@
+# Symfony standard .gitignore
+
+###> Symfony ###
+/.env
+/.env.local
+/.env.*.local
+/.env.test.local
+/public/bundles/
+/var/
+/vendor/
+###< Symfony ###
+
+# Ignore Composer files that can be regenerated
+composer.lock
+composer.phar
+
+# Cache and logs (Symfony 6+ uses /var, older versions use /app)
+app/cache/
+app/logs/
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Node/Yarn
+/node_modules/
+yarn.lock
+npm-debug.log
+
+# PHPUnit
+.phpunit.result.cache
+
+# Coverage reports
+coverage/
+clover.xml
+phpunit.xml
+phpunit.xml.dist
+
+# Other files you may want to ignore
+*.log
+*.cache
+
+# User uploads (if you have a public/uploads dir for file uploads)
+public/uploads/
