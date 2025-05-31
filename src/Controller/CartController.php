@@ -114,6 +114,29 @@ public function addToCart(int $productId, Request $request): Response
         $this->addFlash('success', 'Item removed from cart.');
         return $this->redirectToRoute('cart_index');
     }
+    //cart decrease 
+    #[Route('/decrease/{cartItemId}', name: 'cart_decrease', methods: ['POST'])]
+    public function decreaseCartItem(int $cartItemId): Response
+    {
+        $cartItem = $this->entityManager->getRepository(CartItem::class)->find($cartItemId);
+        if (!$cartItem) {
+            $this->addFlash('error', 'Cart item not found.');
+            return $this->redirectToRoute('cart_index');
+        }
+
+        if ($cartItem->getQuantity() > 1) {
+            $cartItem->setQuantity($cartItem->getQuantity() - 1);
+            $this->entityManager->flush();
+            $this->addFlash('success', 'Cart item quantity decreased.');
+        } else {
+            // If quantity is 1, remove the item
+            $this->entityManager->remove($cartItem);
+            $this->entityManager->flush();
+            $this->addFlash('success', 'Cart item removed.');
+        }
+
+        return $this->redirectToRoute('cart_index');
+    }
 
     
 }
