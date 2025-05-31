@@ -55,8 +55,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Contact</a>
                             </li>
-                            
-
+                            <li class="nav-item">
+                                                                {# templates/base.html.twig (in your navbar) #}
+                            <div class="navbar-nav ms-auto">
+                            {% if app.user %}
+                            <a class="nav-item nav-link" href="{{ path('app_logout') }}">Logout</a>
+                            {% else %}
+                            <a class="nav-item nav-link" href="{{ path('app_login') }}">Login</a>
+                            <a class="nav-item nav-link" href="{{ path('app_register') }}">Register</a>
+                            {% endif %}
+                           </div>
+                            </li>
 
                         </ul>
                     </div>
