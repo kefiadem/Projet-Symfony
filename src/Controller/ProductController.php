@@ -5,15 +5,28 @@ namespace App\Controller;
 use App\Entity\MenProducts;
 use App\Repository\MenProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 final class ProductController extends AbstractController
 {
     #[Route('/products/{category}', name: 'products')]
-    public function forhim(MenProductsRepository $repository,String $category): Response
+    public function forhim(MenProductsRepository $repository,String $category, Request $request): Response
     {
-        $products = $repository->findBy(['category' => $category]);
+        if($request->query->has('order')){
+            $order=$request->query->get('order');
+        }
+        else{
+            $order='review';
+        }
+        $products = $repository->createQueryBuilder('p')
+            ->where('p.category = :category')
+            ->setParameter('category', $category)
+            ->orderBy('p.'.$order, 'DESC')
+            ->getQuery()
+            ->getResult();
+
         return $this->render('product/index.html.twig', [
             'products' => $products,
             'category' => $category,
@@ -30,6 +43,7 @@ final class ProductController extends AbstractController
             'product' => $product,
         ]);
     }
+
 
 
 }

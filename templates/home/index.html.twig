@@ -179,7 +179,7 @@
                         {% if date(product.ReleaseDate) > date('-30days') %}{% set classes = classes|merge(['newarrivals']) %}{% endif %}
                         {% if product.stock < 10 %}{% set classes = classes|merge(['bestsellers']) %}{% endif %}
 
-                        <div class="col-md-3 py-3 product-item link-effect  {{ classes|join(' ') }}">
+                        <div class="col-md-3 py-3 product-item link-effect  {{ classes|join(' ') }} ">
                             <div class="image-holder position-relative m-3">
                                 <a href="{{ path('id_product', { id: product.id }) }}">
                                     <img src="{{ asset('' ~ product.image) }}" alt="{{ product.name }}" class="product-image img-fluid">
@@ -257,7 +257,7 @@
                     <article class="post-item">
                         <div class="post-image">
                             <a href="single-post.html">
-                                <img src="images/post-image1.jpg" alt="image" class="post-grid-image img-fluid">
+                                <img src="{{ asset('assets/images/post-image1.jpg') }}" alt="image" class="post-grid-image img-fluid">
                             </a>
                         </div>
                         <div class="post-content d-flex flex-wrap gap-2 my-3">
@@ -266,7 +266,7 @@
                                 <span class="meta-day"> jul 11, 2022</span>
                             </div>
                             <h5 class="post-title text-uppercase">
-                                <a href="single-post.html" class="text-dark">How to look outstanding in pastel</a>
+                                <a href="#" class="text-dark">How to look outstanding in pastel</a>
                             </h5>
                             <p>Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</p>
                         </div>
@@ -276,7 +276,7 @@
                     <article class="post-item">
                         <div class="post-image">
                             <a href="single-post.html">
-                                <img src="images/post-image2.jpg" alt="image" class="post-grid-image img-fluid">
+                                <img src="{{ asset('assets/images/post-image2.jpg') }}" alt="image" class="post-grid-image img-fluid">
                             </a>
                         </div>
                         <div class="post-content d-flex flex-wrap gap-2 my-3">
@@ -285,7 +285,7 @@
                                 <span class="meta-day"> jul 11, 2022</span>
                             </div>
                             <h5 class="post-title text-uppercase">
-                                <a href="single-post.html" class="text-dark">Top 10 fashion trend for summer</a>
+                                <a href="#" class="text-dark">Top 10 fashion trend for summer</a>
                             </h5>
                             <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
                         </div>
@@ -295,7 +295,7 @@
                     <article class="post-item">
                         <div class="post-image">
                             <a href="single-post.html">
-                                <img src="images/post-image3.jpg" alt="image" class="post-grid-image img-fluid">
+                                <img src="{{ asset('assets/images/post-image3.jpg') }}" alt="image" class="post-grid-image img-fluid">
                             </a>
                         </div>
                         <div class="post-content d-flex flex-wrap gap-2 my-3">
@@ -328,7 +328,7 @@
                 </div>
             </div>
         </div>
-        <img src="images/bg-newsletter.jpg" alt="newsletter" class="jarallax-img img-fluid" />
+        <img src="{{ asset('assets/images/bg-newsletter.jpg') }}" alt="newsletter" class="jarallax-img img-fluid" />
     </section>
 
     <section class="instagram bg-black py-5" data-bs-theme="dark">
@@ -338,21 +338,21 @@
                 <div class="col-4 col-sm-4 col-md-4">
                     <div class="insta-item">
                         <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-                            <img src="images/insta-item1.jpg" alt="instagram" class="insta-image img-fluid">
+                            <img src="{{ asset('assets/images/insta-item1.jpg')}} " alt="instagram" class="insta-image img-fluid">
                         </a>
                     </div>
                 </div>
                 <div class="col-4 col-sm-4 col-md-4">
                     <div class="insta-item">
                         <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-                            <img src="images/insta-item2.jpg" alt="instagram" class="insta-image img-fluid">
+                            <img src="{{ asset('assets/images/insta-item2.jpg') }}" alt="instagram" class="insta-image img-fluid">
                         </a>
                     </div>
                 </div>
                 <div class="col-4 col-sm-4 col-md-4">
                     <div class="insta-item">
                         <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-                            <img src="images/insta-item3.jpg" alt="instagram" class="insta-image img-fluid">
+                            <img src="{{ asset('assets/images/insta-item3.jpg') }}" alt="instagram" class="insta-image img-fluid">
                         </a>
                     </div>
                 </div>

@@ -233,7 +233,7 @@
       count++;
       $(this).attr("style", "animation-delay:"+ delay*count +"ms;");
     });
-    
+
     var Sticky = new hcSticky('.sticky-info', {
       stickTo: 'section.single-product',
       innerTop: 200,
@@ -248,3 +248,6 @@
   }); // document ready
 
 })(jQuery)
+
+
+

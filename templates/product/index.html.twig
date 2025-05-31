@@ -5,7 +5,6 @@
 {% block stylesheets %}
     {{ parent() }}
     <style>
-        .product-item { display: none; }
         .product-item.show { display: block; }
         .grid {
             display: flex;
@@ -48,23 +47,19 @@
                     <h3 class="text-primary display-2">{{ category | upper}} Collection</h3>
                     <span>Handmade {{ category }} clothes for any occasion</span>
                 </div>
+                <div class="order-filter">
+
+                    <a href="{{ path('products',{'order':'stock' ,'category': category} ) }}" class="btn-icon">Best Sellers</a>
+                    <a href="{{ path('products',{'order':'ReleaseDate' , 'category': category} ) }} " class="btn-icon" >New Arrivals</a>
+                    <a href="{{ path('products',{'order':'review','category': category} ) }}" class="btn-icon">Best Reviewed</a>
+                </div>
             </div>
             <div class="row">
-                <div id="filters" class="button-group d-flex gap-4 justify-content-center py-5">
-                    <button class="btn-link text-dark text-uppercase is-checked" data-filter="all">All</button>
-                    <button class="btn-link text-dark text-uppercase" data-filter="bestsellers">Best Sellers</button>
-                    <button class="btn-link text-dark text-uppercase" data-filter="newarrivals">New Arrivals</button>
-                    <button class="btn-link text-dark text-uppercase" data-filter="bestreviewed">Best Reviewed</button>
-                </div>
 
-                <div class="grid">
+                <div class="grid p-0 clearfix">
                     {% for product in products %}
-                        {% set classes = [] %}
-                        {% if product.review >= 4 %}{% set classes = classes|merge(['bestreviewed']) %}{% endif %}
-                        {% if date(product.ReleaseDate) > date('-30days') %}{% set classes = classes|merge(['newarrivals']) %}{% endif %}
-                        {% if product.stock < 10 %}{% set classes = classes|merge(['bestsellers']) %}{% endif %}
 
-                        <div class="product-item link-effect {{ classes|join(' ') }}">
+                        <div class="product-item link-effect ">
                             <div class="image-holder position-relative">
                                 <a href="{{ path('id_product', { id: product.id }) }}">
                                     <img src="{{ asset('' ~ product.image) }}" alt="{{ product.name }}" class="product-image img-fluid">
@@ -91,36 +86,4 @@
             </div>
         </div>
     </section>
-{% endblock %}
-{% block scripts %}
-    {{ parent() }}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('#filters button');
-            const products = document.querySelectorAll('.product-item');
-
-            // Show all products initially
-            products.forEach(product => product.classList.add('show'));
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
-
-                    // Update active button
-                    filterButtons.forEach(btn => btn.classList.remove('is-checked'));
-                    this.classList.add('is-checked');
-
-                    // Filter products
-                    products.forEach(product => {
-                        product.classList.remove('show');
-                        if (filter === 'all') {
-                            product.classList.add('show');
-                        } else if (product.classList.contains(filter)) {
-                            product.classList.add('show');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 {% endblock %}
