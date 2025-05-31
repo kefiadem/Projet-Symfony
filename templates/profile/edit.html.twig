@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="h4 mb-0">Edit Profile</h1>
+                </div>
+                
+                <div class="card-body">
+                    {{ form_start(form) }}
+                        {{ form_row(form.email) }}
+                        {{ form_row(form.username) }}
+                        {{ form_row(form.address) }}
+                        
+                        <div class="mb-3" id="profile-image">
+                            <label for="{{ form.profileImage.vars.id }}" class="form-label">
+                                Profile Image
+                            </label>
+                            
+                            {% if user.image %}
+                                <div class="mb-3 text-center">
+                                    <img src="{{ asset('assets/UserImages/' ~ user.image) }}" 
+                                         alt="Profile image" 
+                                         class="img-thumbnail"
+                                         style="max-width: 200px;">
+                                    <p class="text-muted mt-2">Current profile image</p>
+                                </div>
+                            {% endif %}
+                            
+                            {{ form_widget(form.profileImage, {
+                                'attr': {'class': 'form-control'}
+                            }) }}
+                            
+                            {{ form_errors(form.profileImage) }}
+                            
+                            <div class="form-text">
+                                JPG, PNG or GIF. Max size 2MB.
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">
+                            Update Profile
+                        </button>
+                    {{ form_end(form) }}
+                </div>
+                
+                <div class="card-footer text-center">
+                    <a href="{{ path('app_profile') }}" class="text-decoration-none">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
