@@ -56,6 +56,10 @@ class RegistrationController extends AbstractController
             );
 
             $entityManager->persist($user);
+            $cart = new \App\Entity\Cart();
+            $cart->setUserId($user);
+            $cart->setCreationDate(new \DateTime());
+            $entityManager->persist($cart);
             $entityManager->flush();
 
             // Send email verification...
