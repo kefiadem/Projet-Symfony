@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your Profile{% endblock %}
+
+{% block body %}
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h1 class="h4 mb-0">Your Profile</h1>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <img src="{{ asset('assets/UserImages/' ~ user.image) }}" 
+                                 alt="Profile image" 
+                                 class="rounded-circle" 
+                                 style="width: 150px; height: 150px; object-fit: cover;">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <strong>Username:</strong> {{ user.username }}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <strong>Email:</strong> {{ user.email }}
+                        </div>
+                        
+                        {% if user.address %}
+                            <div class="mb-3">
+                                <strong>Address:</strong> {{ user.address }}
+                            </div>
+                        {% endif %}
+                        
+                        <div class="mb-3">
+                            <strong>Account Status:</strong>
+                            <span class="badge {{ user.isVerified ? 'bg-success' : 'bg-warning' }}">
+                                {{ user.isVerified ? 'Verified' : 'Not Verified' }}
+                            </span>
+                        </div>
+                        
+                        <div class="d-grid gap-2 mt-4">
+                            <a href="{{ path('app_profile_edit') }}" class="btn btn-primary">
+                                <i class="bi bi-pencil me-2"></i>Edit Profile
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
