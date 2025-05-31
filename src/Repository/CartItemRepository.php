@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Cart;
 use App\Entity\CartItem;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,25 +20,24 @@ class CartItemRepository extends ServiceEntityRepository
     //    /**
     //     * @return CartItem[] Returns an array of CartItem objects
     //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+        public function findByCart(Cart $cart): array
+        {
+        return $this->createQueryBuilder('ci')
+            ->andWhere('ci.cart = :cart')
+            ->setParameter('cart', $cart)
+            ->orderBy('ci.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 
-    //    public function findOneBySomeField($value): ?CartItem
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+     public function findOneByCartAndProduct(Cart $cart, int $productId): ?CartItem
+         {
+        return $this->createQueryBuilder('ci')
+            ->andWhere('ci.cart = :cart')
+            ->andWhere('ci.product = :productId')
+            ->setParameter('cart', $cart)
+            ->setParameter('productId', $productId)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

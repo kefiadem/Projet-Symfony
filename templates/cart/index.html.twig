@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block body %}
+<div class="cart-page">
+    <div class="cart-card">
+        <div class="row">
+            <div class="col-md-8 cart-section">
+                <div class="cart-title">
+                    <div class="row">
+                        <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                        <div class="col align-self-center text-right text-muted">{{ cart.cartItems|length }} items</div>
+                    </div>
+                </div>
+                {% set total = 0 %}
+                {% for item in cart.cartItems %}
+                    {% set subtotal = item.product.price * item.quantity %}
+                    {% set total = total + subtotal %}
+                    <div class="row border-top border-bottom">
+                        <div class="row cart-item align-items-center">
+                            <div class="col-2">
+                                <img class="img-fluid"
+                                    src="{{ asset(item.product.image|default('default-product.png')) }}"
+                                    alt="{{ item.product.name }}">
+                            </div>
+                            <div class="col">
+                                <div class="row text-muted">{{ item.product.category.name|default('Product') }}</div>
+                                <div class="row">{{ item.product.name }}</div>
+                            </div>
+                            <div class="col">
+                                <form action="{{ path('cart_decrease', {cartItemId: item.id}) }}" method="post" style="display:inline;">
+                                    <button type="submit" class="quantity-btn" title="Decrease quantity">-</button>
+                                </form>
+                                <span class="quantity-value">{{ item.quantity }}</span>
+                                <a href="{{ path('cart_add', {productId: item.product.id}) }}" class="quantity-btn" title="Increase quantity">+</a>
+                            </div>
+                            <div class="col">
+                                &euro; {{ item.product.price|number_format(2, '.', ',') }}
+                                <form action="{{ path('cart_remove', {cartItemId: item.id}) }}" method="post" style="display:inline;">
+                                    <button type="submit" class="close btn btn-link p-0" title="Remove">&#10005;</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="text-center py-5">
+                        <i class="bi bi-cart-x display-4 text-muted mb-3"></i>
+                        <p class="text-muted mb-4">Your cart is empty.</p>
+                        <a href="{{ path('app_home') }}" class="btn btn-primary">
+                            <i class="bi bi-arrow-left"></i> Back to Shopping
+                        </a>
+                    </div>
+                {% endfor %}
+                <div class="back-to-shop mt-4">
+                    <a href="{{ path('app_home') }}">&leftarrow;</a>
+                    <span class="text-muted">Back to shop</span>
+                </div>
+            </div>
+            <div class="col-md-4 cart-summary">
+                <div><h5><b>Summary</b></h5></div>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">ITEMS {{ cart.cartItems|length }}</div>
+                    <div class="col text-right">&euro; {{ total|number_format(2, '.', ',') }}</div>
+                </div>
+                <form>
+                    <p>SHIPPING</p>
+                    <select><option class="text-muted">Standard-Delivery - &euro;5.00</option></select>
+                    <p>GIVE CODE</p>
+                    <input id="code" placeholder="Enter your code">
+                </form>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">TOTAL PRICE</div>
+                    <div class="col text-right">&euro; {{ (total + 5)|number_format(2, '.', ',') }}</div>
+                </div>
+                <a href="#" class="btn">CHECKOUT</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+{% endblock %}
+
