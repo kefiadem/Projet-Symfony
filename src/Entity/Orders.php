@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: OrdersRepository::class)]
 class Orders
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -36,11 +37,20 @@ class Orders
     #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'OrderRef', orphanRemoval: true)]
     private Collection $orderItems;
 
+    #[ORM\Column(length: 255)]
+    private ?string $paymentMethod = null;
+
     public function __construct()
     {
         $this->orderItems = new ArrayCollection();
     }
 
+    public const PAYMENT_METHODS = [
+        'Credit Card' => 'credit_card',
+        'PayPal' => 'paypal',
+        'Cash on Delivery' => 'cash_on_delivery',
+        'Stripe' => 'stripe',
+    ];
     public function getId(): ?int
     {
         return $this->id;
@@ -132,6 +142,18 @@ class Orders
                 $orderItem->setOrderRef(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPaymentMethod(): ?string
+    {
+        return $this->paymentMethod;
+    }
+
+    public function setPaymentMethod(string $paymentMethod): static
+    {
+        $this->paymentMethod = $paymentMethod;
 
         return $this;
     }

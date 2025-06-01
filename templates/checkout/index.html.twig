@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block body %}
+    <div class="checkout-wrapper">
+        <h1 class="checkout-title">Checkout</h1>
+
+        {# Flash messages #}
+        <div class="checkout-flashes">
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="checkout-alert checkout-alert-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <section class="checkout-cart">
+            <h2 class="checkout-subtitle">Your Cart Items</h2>
+
+            {% if cartItems|length == 0 %}
+                <p class="checkout-empty-msg">Your cart is empty.</p>
+            {% else %}
+                <ul class="checkout-cart-list">
+                    {% for item in cartItems %}
+                        <li class="checkout-cart-item">
+                            <span class="checkout-product-name">{{ item.product.name }}</span> -
+                            <span class="checkout-quantity">Quantity: {{ item.quantity }}</span> -
+                            <span class="checkout-price">{{ item.product.price|number_format(2, '.', ',') }} DNT</span>
+                        </li>
+                    {% endfor %}
+                    <li class="checkout-total">
+                        <strong>Total:</strong> {{ totalPrice|number_format(2, '.', ',') }} DNT
+                    </li>
+                </ul>
+            {% endif %}
+        </section>
+
+        <section class="checkout-form-section">
+            <h2 class="checkout-subtitle">Checkout Form</h2>
+            {{ form_start(orderForm, {'attr': {'class': 'checkout-form'}}) }}
+
+            <div class="checkout-form-group">
+                {{ form_label(orderForm.shipping_address) }}
+                {{ form_widget(orderForm.shipping_address, {'attr': {'class': 'checkout-input'}}) }}
+                {{ form_errors(orderForm.shipping_address) }}
+            </div>
+
+            <div class="checkout-form-group">
+                {{ form_label(orderForm.buyerFullName) }}
+                {{ form_widget(orderForm.buyerFullName, {'attr': {'class': 'checkout-input'}}) }}
+                {{ form_errors(orderForm.buyerFullName) }}
+            </div>
+
+            <div class="checkout-form-group">
+                {{ form_label(orderForm.buyerPhone) }}
+                {{ form_widget(orderForm.buyerPhone, {'attr': {'class': 'checkout-input'}}) }}
+                {{ form_errors(orderForm.buyerPhone) }}
+            </div>
+
+            <div class="checkout-form-group">
+                {{ form_label(orderForm.buyerEmail) }}
+                {{ form_widget(orderForm.buyerEmail, {'attr': {'class': 'checkout-input'}}) }}
+                {{ form_errors(orderForm.buyerEmail) }}
+            </div>
+
+            <div class="checkout-form-group">
+                {{ form_label(orderForm.paymentMethod) }}
+                {{ form_widget(orderForm.paymentMethod, {'attr': {'class': 'checkout-select'}}) }}
+                {{ form_errors(orderForm.paymentMethod) }}
+            </div>
+
+            <button class="checkout-btn" type="submit">Place Order</button>
+            {{ form_end(orderForm) }}
+        </section>
+    </div>
+
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/checkout.css') }}">
+{% endblock %}
+

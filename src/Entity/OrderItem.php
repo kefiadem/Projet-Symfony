@@ -23,6 +23,9 @@ class OrderItem
     #[ORM\JoinColumn(nullable: false)]
     private ?Orders $OrderRef = null;
 
+    #[ORM\Column]
+    private ?int $Quantity = null;
+
     public function getProductName(): ?string
     {
         return $this->ProductName;
@@ -55,6 +58,18 @@ class OrderItem
     public function setOrderRef(?Orders $OrderRef): static
     {
         $this->OrderRef = $OrderRef;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->Quantity;
+    }
+
+    public function setQuantity(int $Quantity): static
+    {
+        $this->Quantity = $Quantity;
 
         return $this;
     }
