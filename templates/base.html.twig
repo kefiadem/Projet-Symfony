@@ -274,22 +274,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         html += `
-            <div class="wishlist-item d-flex align-items-center justify-content-between mb-3 bg-dark text-white p-3 rounded" style="min-height: 100px;">
-            <img src="${imgPath}" alt="${item.name}" class="rounded" style="width: 80px; height: 80px; object-fit: cover;">
-            
-            <div class="flex-grow-1 mx-3">
-                <h5 class="mb-0">${item.name}</h5>
-            </div>
+            <div class="wishlist-item d-flex align-items-center mb-3 bg-dark text-white p-3 rounded" style="min-height: 100px;">
+                
+                <!-- Image -->
+                <img src="${imgPath}" alt="${item.name}" class="rounded me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                
+                <!-- Name + Add to Cart Button -->
+                <div class="flex-grow-1">
+                <h5 class="mb-2">${item.name}</h5>
+                <button class="btn btn-outline-success btn-sm rounded add-to-cart" data-id="${item.id}">
+                Add to Cart
+                </button>
+                </div>
 
-            <button class="btn btn-outline-light btn-sm remove-wishlist" data-id="${item.id}">
+                <!-- Remove Button (X Icon) -->
+                <button class="btn btn-outline-light btn-sm ms-3 remove-wishlist" data-id="${item.id}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 
                     .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 
                     2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                 </svg>
-            </button>
+                </button>
+
             </div>
-        `;
+            `;
         });
           }
           document.getElementById('wishlistContent').innerHTML = html;
@@ -316,6 +324,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+document.addEventListener('click', function (e) {
+  const addBtn = e.target.closest('button.add-to-cart');
+  if (addBtn && wishlistOffcanvas.contains(addBtn)) {
+    const id = addBtn.getAttribute('data-id');
+
+    fetch(`/cart/add/${id}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+      },
+      body: JSON.stringify({})
+    }).then(() => {
+      // Optionally show a toast or message
+      showCartToast();
+    });
+  }
+});
+
 </script>
 <meta name="csrf-token" content="{{ csrf_token('wishlist_action') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/wishlist.css') }}">
