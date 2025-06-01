@@ -1,25 +1,22 @@
 {# Renders any flash message in a Bootstrap toast, auto-showing it #}
 {% for label, messages in app.flashes %}
     {% for message in messages %}
-        <div id="flash-toast-{{ loop.parent.loop.index0 }}-{{ loop.index0 }}" class="toast align-items-center text-bg-{{ label == 'success' ? 'success' : (label == 'error' ? 'danger' : label) }} border-0 position-fixed top-0 start-50 translate-middle-x mt-5 p-3 "
-             role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000" style="z-index: 1055; margin-top: 30px;">
+        <div id="flash-toast-{{ loop.parent.loop.index0 }}-{{ loop.index0 }}" class="toast align-items-center text-bg-{{ label == 'success' ? 'success' : (label == 'error' ? 'danger' : label) }} border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000">
             <div class="d-flex">
                 <div class="toast-body">
+                    <i class="bi bi-{{ label == 'success' ? 'check-circle-fill' : (label == 'error' ? 'exclamation-circle-fill' : 'info-circle-fill') }} me-2"></i>
                     {{ message }}
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var toastEl = document.getElementById('flash-toast-{{ loop.parent.loop.index0 }}-{{ loop.index0 }}');
-                if (toastEl) {
-                    var toast = new bootstrap.Toast(toastEl);
-                    toast.show();
-                }
-            });
-        </script>
     {% endfor %}
 {% endfor %}
 
+{# Add the toast container that will be used for all toasts #}
+<div class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 1055; margin-top: 30px;" id="toast-container">
+    {# Dynamic toasts will be inserted here by JavaScript #}
+</div>
 
+{# Unified toast functionality #}
+<script src="{{ asset('assets/js/flash_toasts.js') }}"></script>

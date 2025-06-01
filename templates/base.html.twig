@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/style.css') }}">
     {% block stylesheets %}{% endblock %}
-            {# encore_entry_link_tags('app') #}
+    {# encore_entry_link_tags('app') #}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,7 +146,7 @@
     <div class="search-popup-container">
 
         <form role="search" method="get" class="form-group" action="{{ path('app_home') }}">
-                <input type="search" id="search-form" class="form-control border-0 border-bottom" placeholder="Type and press enter" value="" name="s" />
+            <input type="search" id="search-form" class="form-control border-0 border-bottom" placeholder="Type and press enter" value="" name="s" />
             <button type="submit" class="search-submit border-0 position-absolute bg-transparent" style="top: 15px;right: 15px;"><svg class="search" width="24" height="24"><use xlink:href="#search"></use></svg></button>
         </form>
     </div>
@@ -161,13 +161,13 @@
 {% include '_footer.html.twig' %}
 {# scripts #}
 {% block scripts %}
-<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-<script src=" {{ asset('assets/js/plugins.js') }}"></script>
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-<script src="{{ asset('assets/js/SmoothScroll.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src=" {{ asset('assets/js/plugins.js') }}"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="{{ asset('assets/js/SmoothScroll.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 {% endblock %}
 
 </body>
@@ -203,78 +203,78 @@
 
 <script>
     function showWishlistToast(type) {
-    let toastId = null;
+        let toastId = null;
 
-    if (type === 'added') {
-        toastId = 'wishlistToastAdded';
-    } else if (type === 'exists') {
-        toastId = 'wishlistToastExists';
-    }
+        if (type === 'added') {
+            toastId = 'wishlistToastAdded';
+        } else if (type === 'exists') {
+            toastId = 'wishlistToastExists';
+        }
 
-    if (toastId) {
-        const toastEl = document.getElementById(toastId);
-        if (toastEl) {
-            const toast = new bootstrap.Toast(toastEl, { delay: 2000 });
-            toast.show();
+        if (toastId) {
+            const toastEl = document.getElementById(toastId);
+            if (toastEl) {
+                const toast = new bootstrap.Toast(toastEl, { delay: 2000 });
+                toast.show();
+            }
         }
     }
-}
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.add-to-wishlist').forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            const productId = this.dataset.productId;
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.add-to-wishlist').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const productId = this.dataset.productId;
 
-            fetch('/wishlist/add', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: new URLSearchParams({ productId })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'added') {
-                    showWishlistToast('added');
-                } else if (data.status === 'exists') {
-                    showWishlistToast('exists');
-                }
-                // You can handle other statuses here if needed
+                fetch('/wishlist/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: new URLSearchParams({ productId })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'added') {
+                            showWishlistToast('added');
+                        } else if (data.status === 'exists') {
+                            showWishlistToast('exists');
+                        }
+                        // You can handle other statuses here if needed
+                    });
             });
         });
     });
-});
 </script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.getElementById('wishlistToggle');
-  const wishlistOffcanvas = document.getElementById('wishlistOffcanvas');
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('wishlistToggle');
+        const wishlistOffcanvas = document.getElementById('wishlistOffcanvas');
 
-  if (toggle && wishlistOffcanvas) {
-    const bsOffcanvas = new bootstrap.Offcanvas(wishlistOffcanvas);
+        if (toggle && wishlistOffcanvas) {
+            const bsOffcanvas = new bootstrap.Offcanvas(wishlistOffcanvas);
 
-    toggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      bsOffcanvas.show();
-    });
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                bsOffcanvas.show();
+            });
 
-    wishlistOffcanvas.addEventListener('show.bs.offcanvas', function () {
-      fetch('/wishlist')
-        .then(res => res.json())
-        .then(data => {
-          let html = '';
-          if (data.length === 0) {
-            html = '<p>Your wishlist is empty.</p>';
-          } else {
-            data.forEach(item => {
-        let imgPath = item.image || '';
-        if (imgPath.startsWith('/uploads/assets/')) {
-            imgPath = imgPath.replace('/uploads/assets/', '/assets/');
-        }
+            wishlistOffcanvas.addEventListener('show.bs.offcanvas', function () {
+                fetch('/wishlist')
+                    .then(res => res.json())
+                    .then(data => {
+                        let html = '';
+                        if (data.length === 0) {
+                            html = '<p>Your wishlist is empty.</p>';
+                        } else {
+                            data.forEach(item => {
+                                let imgPath = item.image || '';
+                                if (imgPath.startsWith('/uploads/assets/')) {
+                                    imgPath = imgPath.replace('/uploads/assets/', '/assets/');
+                                }
 
-        html += `
+                                html += `
             <div class="wishlist-item d-flex align-items-center mb-3 bg-dark text-white p-3 rounded" style="min-height: 100px;">
 
                 <!-- Image -->
@@ -299,59 +299,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
             </div>
             `;
-        });
-          }
-          document.getElementById('wishlistContent').innerHTML = html;
-        });
-    });
+                            });
+                        }
+                        document.getElementById('wishlistContent').innerHTML = html;
+                    });
+            });
 
+            document.addEventListener('click', function (e) {
+                const removeBtn = e.target.closest('button.remove-wishlist');
+                if (removeBtn && wishlistOffcanvas.contains(removeBtn)) {
+                    const id = removeBtn.getAttribute('data-id');
+                    fetch(`/wishlist/remove/${id}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                        },
+                        body: JSON.stringify({})
+                    }).then(() => {
+                        const event = new Event('show.bs.offcanvas');
+                        wishlistOffcanvas.dispatchEvent(event);
+                    });
+                }
+            });
+        }
+    });
     document.addEventListener('click', function (e) {
-    const removeBtn = e.target.closest('button.remove-wishlist');
-    if (removeBtn && wishlistOffcanvas.contains(removeBtn)) {
-        const id = removeBtn.getAttribute('data-id');
-        fetch(`/wishlist/remove/${id}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-          },
-          body: JSON.stringify({})
-        }).then(() => {
-          const event = new Event('show.bs.offcanvas');
-          wishlistOffcanvas.dispatchEvent(event);
-        });
-      }
-    });
-  }
-});
-document.addEventListener('click', function (e) {
-  const addBtn = e.target.closest('button.add-to-cart');
-  if (addBtn && wishlistOffcanvas.contains(addBtn)) {
-    const id = addBtn.getAttribute('data-id');
+        const addBtn = e.target.closest('button.add-to-cart');
+        if (addBtn && wishlistOffcanvas.contains(addBtn)) {
+            const id = addBtn.getAttribute('data-id');
 
-    fetch(`/cart/add/${id}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-      },
-      body: JSON.stringify({})
-    }).then(() => {
-      // Optionally show a toast or message
-      showCartToast();
+            fetch(`/cart/add/${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify({})
+            }).then(() => {
+                // Optionally show a toast or message
+                showCartToast();
+            });
+        }
     });
-  }
-});
 
-function showCartToast() {
-    var toastEl = document.getElementById('cartToast');
-    if (toastEl) {
-        var toast = new bootstrap.Toast(toastEl, { delay: 2500 });
-        toast.show();
+    function showCartToast() {
+        var toastEl = document.getElementById('cartToast');
+        if (toastEl) {
+            var toast = new bootstrap.Toast(toastEl, { delay: 2500 });
+            toast.show();
+        }
     }
-}
 
 </script>
 <meta name="csrf-token" content="{{ csrf_token('wishlist_action') }}">
