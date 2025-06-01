@@ -1,0 +1,93 @@
+#wishlistOffcanvas {
+    background: #111;
+    color: #fff;
+    min-height: 100vh;
+    font-family: sans-serif;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    width: 400px;
+}
+
+#wishlistOffcanvas .offcanvas-header {
+    border-bottom: 1px solid #333;
+}
+
+#wishlistOffcanvas .wishlist-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+#wishlistContent .wishlist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+#wishlistContent .wishlist-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+#wishlistContent .wishlist-item-name {
+    flex: 1;
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+#wishlistContent .remove-wishlist {
+    background: transparent;
+    border: 1px solid #ff4d4f;
+    color: #ff4d4f;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#wishlistContent .remove-wishlist:hover {
+    background: #ff4d4f;
+    color: #fff;
+}
+#wishlistOffcanvas,
+#wishlistOffcanvas * {
+  color: white !important;
+}
+/* Center and enlarge wishlist item product name */
+#wishlistOffcanvas .offcanvas-header .offcanvas-title {
+  font-size: 1.8rem;     /* bigger font size */     /* bold */
+  width: 100%;
+  text-align: center;    /* center text horizontally */
+  margin: 0 auto;        /* center block */
+}
+
+/* Optional: center the close button on the right */
+#wishlistOffcanvas .offcanvas-header {
+  position: relative;
+}
+
+#wishlistOffcanvas .btn-close {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#wishlistOffcanvas .btn-close {
+  filter: invert(1) brightness(2);
+}
+.wishlist-item {
+  transition: background 0.3s ease;
+}
+
+.wishlist-item:hover {
+  background-color: #333;
+}

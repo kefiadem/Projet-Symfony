@@ -64,7 +64,7 @@ class Wishlist
         return $this;
     }
 
-    public function removeProduct(MenProducts $product): static
+    public function removeProduct(MenProducts $product): self
     {
         $this->products->removeElement($product);
 
