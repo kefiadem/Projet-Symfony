@@ -56,11 +56,18 @@
 
             <!-- Nav Item - Products -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app.admin_update_product') }}">
+                <a class="nav-link" href="{{ path('app.admin_list_products') }}">
                     <i class="fas fa-fw fa-box"></i>
-                    <span>Add/Edit Products</span>
+                    <span>Products</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app.admin_update_product') }}">
+                    <i class="fas fa-fw fa-box"></i>
+                    <span>Add/Edit a Product</span>
+                </a>
+            </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

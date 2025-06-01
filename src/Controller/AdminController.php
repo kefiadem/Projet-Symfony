@@ -152,6 +152,44 @@ final class AdminController extends AbstractController
         }
         
     }
+    #[Route('/products', name: '_list_products')]
+    public function listProducts(ManagerRegistry $doctrine): Response
+    {
+        $products = $doctrine->getRepository(MenProducts::class)->findAll();
+        
+        return $this->render('admin/products.html.twig', [
+            'products' => $products
+        ]);
+    }
+    #[Route('/products/delete/{id}', name: '_delete_product')]
+    public function deleteProduct(int $id, EntityManagerInterface $em, Request $request): RedirectResponse
+{
+    $product = $em->getRepository(MenProducts::class)->find($id);
+    
+    if (!$product) {
+        $this->addFlash('error', 'Product not found');
+        return $this->redirectToRoute('app.admin_list_products');
+    }
+
+    // CSRF protection
+    $submittedToken = $request->request->get('_token');
+    if (!$this->isCsrfTokenValid('delete' . $product->getId(), $submittedToken)) {
+        $this->addFlash('error', 'Invalid CSRF token');
+        return $this->redirectToRoute('app.admin_list_products');
+    }
+
+    try {
+        $em->remove($product);
+        $em->flush();
+        $this->addFlash('success', 'Product deleted successfully');
+    } catch (\Exception $e) {
+        $this->addFlash('error', 'Error deleting product: ' . $e->getMessage());
+    }
+
+    return $this->redirectToRoute('app.admin_list_products');
+}
+
+
     #[Route('/order/view/{id}', name: '_order_view')]
     public function viewOrder($id, EntityManagerInterface $em): Response
 {
