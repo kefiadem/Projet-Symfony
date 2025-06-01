@@ -74,7 +74,7 @@
                     <div class="col">TOTAL PRICE</div>
                     <div class="col text-right">&euro; {{ (total + 5)|number_format(2, '.', ',') }}</div>
                 </div>
-                <a href="#" class="btn">CHECKOUT</a>
+                <a href="{{ path('app_checkout') }}" class="btn">CHECKOUT</a>
             </div>
         </div>
     </div>

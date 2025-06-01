@@ -16,7 +16,7 @@ use Doctrine\ORM\EntityManagerInterface;  // <-- Add this
 
 final class CheckoutController extends AbstractController
 {
-    #[Route('/checkout', name: 'checkout')]
+    #[Route('/checkout', name: 'app_checkout')]
     public function checkout(
         Request $request,
         EntityManagerInterface $em,
