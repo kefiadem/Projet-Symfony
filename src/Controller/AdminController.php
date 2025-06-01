@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 #[Route('/admin', name: 'app.admin')]
 final class AdminController extends AbstractController
 {
-    #[Route('/updateproduct/{id?}', name: 'update.product')]
+    #[Route('/updateproduct/{id?}', name: '_update_product')]
     public function addProduct(MenProducts $product=null,ManagerRegistry $doctrine, Request $request, SluggerInterface $slugger,#[Autowire('%kernel.project_dir%/public/assets/uploads/products')] string $brochuresDirectory): Response
     {
         $new=false;
@@ -72,4 +72,18 @@ final class AdminController extends AbstractController
         ]);
     }
     }
+    #[Route('/panel', name: '_panel')]
+    public function panel(ManagerRegistry $doctrine): Response
+    {
+        // Fetch data for the dashboard
+        $products = $doctrine->getRepository(MenProducts::class)->findAll();
+        $recentProducts = array_slice($products, -5, 5, true); // Last 5 products
+        
+        return $this->render('admin/dashboard.html.twig', [
+            'productCount' => count($products),
+            'recentProducts' => $recentProducts
+        ]);
+    }
+    
+    
 }
