@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Orders;
+use App\Entity\User;
 use App\Form\OrderForm;
 use App\Entity\OrderItem;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -16,7 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;  // <-- Add this
 
 final class CheckoutController extends AbstractController
 {
-    #[Route('/checkout', name: 'checkout')]
+    #[Route('/checkout', name: 'app_checkout')]
     public function checkout(
         Request $request,
         EntityManagerInterface $em,
@@ -37,7 +38,14 @@ final class CheckoutController extends AbstractController
         }
 
         $order = new Orders();
-        $order->setBuyerEmail($user->getEmail());
+        // Ensure $user is an instance of App\Entity\User to access getEmail()
+        if ($user instanceof \App\Entity\User) {
+            $order->setBuyerEmail($user->getEmail());
+        } else {
+            // Handle the case where $user is not the expected type
+            $this->addFlash('error', 'User information is not available.');
+            return $this->redirectToRoute('app_login');
+        }
         $totalPrice = 0;
         foreach ($cartItems as $cartItem) {
             $totalPrice += $cartItem->getProduct()->getPrice() * $cartItem->getQuantity();
