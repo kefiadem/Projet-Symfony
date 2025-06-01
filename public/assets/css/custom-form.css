@@ -1,0 +1,399 @@
+/* 
+ * SB Admin 2 Form Styling for Symfony 7.3
+ * This CSS file styles Symfony forms to match the SB Admin 2 dashboard theme
+ */
+
+/* Form container styling */
+.form-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    margin-bottom: 20px;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #5a5c69;
+    text-transform: uppercase;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6e707e;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d1d3e2;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Focus state for inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    color: #6e707e;
+    background-color: #fff;
+    border-color: #bac8f3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+/* Textarea specific styling */
+textarea {
+    height: auto;
+    min-height: 100px;
+}
+
+/* Select dropdown styling */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235a5c69' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2rem;
+}
+
+/* Checkbox and radio styling */
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+/* File input styling */
+input[type="file"] {
+    display: block;
+    width: 100%;
+}
+
+/* Button styling */
+button,
+input[type="submit"],
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #4e73df;
+    border: 1px solid #4e73df;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.35rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+/* Button hover state */
+button:hover,
+input[type="submit"]:hover,
+.btn:hover {
+    background-color: #2e59d9;
+    border-color: #2653d4;
+}
+
+/* Button focus state */
+button:focus,
+input[type="submit"]:focus,
+.btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+/* Button active state */
+button:active,
+input[type="submit"]:active,
+.btn:active {
+    background-color: #2653d4;
+    border-color: #244ec9;
+}
+
+/* Secondary button */
+.btn-secondary {
+    background-color: #858796;
+    border-color: #858796;
+}
+
+.btn-secondary:hover {
+    background-color: #717384;
+    border-color: #6b6d7d;
+}
+
+/* Success button */
+.btn-success {
+    background-color: #1cc88a;
+    border-color: #1cc88a;
+}
+
+.btn-success:hover {
+    background-color: #17a673;
+    border-color: #169b6b;
+}
+
+/* Danger button */
+.btn-danger {
+    background-color: #e74a3b;
+    border-color: #e74a3b;
+}
+
+.btn-danger:hover {
+    background-color: #e02d1b;
+    border-color: #d52a1a;
+}
+
+/* Form validation styling */
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #e74a3b;
+}
+
+.is-invalid {
+    border-color: #e74a3b !important;
+}
+
+.is-invalid:focus {
+    border-color: #e74a3b !important;
+    box-shadow: 0 0 0 0.2rem rgba(231, 74, 59, 0.25) !important;
+}
+
+/* Help text styling */
+.form-text {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #858796;
+}
+
+/* Form row for horizontal layouts */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.form-row > .col,
+.form-row > [class*="col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* Specific styling for Symfony form elements */
+div > label {
+    font-weight: 600;
+    color: #5a5c69;
+    margin-bottom: 0.5rem;
+}
+
+/* Symfony collection styling */
+.collection-wrapper {
+    margin-bottom: 1rem;
+}
+
+.collection-item {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+    background-color: #f8f9fc;
+}
+
+/* Add button for collections */
+.collection-add {
+    margin-top: 0.5rem;
+}
+
+/* Remove button for collection items */
+.collection-remove {
+    margin-top: 0.5rem;
+}
+
+/* Styling for form errors */
+ul.form-errors {
+    list-style: none;
+    padding-left: 0;
+    color: #e74a3b;
+    font-size: 80%;
+    margin-top: 0.25rem;
+}
+
+/* Card styling for form sections */
+.form-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.form-card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+/* Specific styling for Symfony's form_row */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="date"],
+    textarea,
+    select {
+        font-size: 16px; /* Prevents zoom on mobile */
+    }
+}
+
+/* Custom styling for the product form */
+.product-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.product-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.product-form .form-card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.product-form .form-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #4e73df;
+}
+
+/* Image preview styling */
+.image-preview {
+    max-width: 200px;
+    margin-top: 10px;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+    overflow: hidden;
+}
+
+.image-preview img {
+    width: 100%;
+    height: auto;
+}
+
+/* Form actions section */
+.form-actions {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e3e6f0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-actions button,
+.form-actions input[type="submit"] {
+    margin-left: 0.5rem;
+}
+
+/* Specific styling for Symfony's form rendering */
+form div > div {
+    margin-bottom: 1rem;
+}
+
+/* Wrapper for the entire form */
+.example-wrapper {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.35rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+/* Styling for form labels */
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #5a5c69;
+}
+
+/* Styling for form inputs */
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #d1d3e2;
+    border-radius: 0.35rem;
+    color: #6e707e;
+}
+
+/* Styling for form buttons */
+form button,
+form input[type="submit"] {
+    background-color: #4e73df;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.35rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+form button:hover,
+form input[type="submit"]:hover {
+    background-color: #2e59d9;
+}
