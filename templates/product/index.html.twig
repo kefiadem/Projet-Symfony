@@ -4,39 +4,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <style>
-        .product-item.show { display: block; }
-        .grid {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -15px;
-        }
-        .product-item {
-            width: 25%;
-            padding: 15px;
-        }
-        @media (max-width: 991px) {
-            .product-item {
-                width: 33.333%;
-            }
-        }
-        @media (max-width: 767px) {
-            .product-item {
-                width: 50%;
-            }
-        }
-        @media (max-width: 575px) {
-            .product-item {
-                width: 100%;
-            }
-        }
-        .btn-icon {
-            text-decoration: none;
-            color: inherit;
-            border: none;
-            outline: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
 {% endblock %}
 
 {% block body %}

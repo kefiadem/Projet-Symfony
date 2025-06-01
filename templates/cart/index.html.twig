@@ -70,7 +70,7 @@
                     <p>GIVE CODE</p>
                     <input id="code" placeholder="Enter your code">
                 </form>
-                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0 ;">
                     <div class="col">TOTAL PRICE</div>
                     <div class="col text-right">&euro; {{ (total + 5)|number_format(2, '.', ',') }}</div>
                 </div>
@@ -82,6 +82,6 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/cart.css') }}">
 {% endblock %}
 
