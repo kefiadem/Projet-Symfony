@@ -163,13 +163,13 @@
 
         <ul class="cat-list">
             <li class="cat-list-item">
-                <a href="{{ path('products', {'category':'forhim'}) }}" title="Men_Clothes">Men Clothes</a>
+                <a href="{{ path('product_search', app.request.query.all | merge({'category': 'forhim'})) }}" title="Men_Clothes">Men Clothes</a>
             </li>
             <li class="cat-list-item">
-                <a href="{{ path('products', {'category':'forher'}) }}" title="Women_Clothes">Women Clothes</a>
+                <a href="{{ path('product_search', app.request.query.all | merge({'category': 'forher'})) }}" title="Women_Clothes">Women Clothes</a>
             </li>
             <li class="cat-list-item">
-                <a href="{{ path('products', {'category':'accessories'}) }}" title="Accessories">Accessories</a>
+                <a href="{{ path('product_search', app.request.query.all | merge({'category': 'accessoried'})) }}" title="Accessories">Accessories</a>
             </li>
         </ul>
 
