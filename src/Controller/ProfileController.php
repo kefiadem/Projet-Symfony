@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Orders;
 use App\Form\ProfileTypeForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,13 +19,22 @@ class ProfileController extends AbstractController
 {
     #[Route('/', name: 'app_profile')]
     #[IsGranted('ROLE_USER')]
-    public function index(): Response
+    public function index(EntityManagerInterface $entityManager): Response
     {
+        /** @var User $user */
         $user = $this->getUser();
+        $userEmail = $user->getEmail();
+
+        // Fetch orders by buyerEmail (all orders are ongoing for demo)
+        $orders = $entityManager->getRepository(Orders::class)
+            ->findBy(['buyerEmail' => $userEmail]);
+
         return $this->render('profile/index.html.twig', [
             'user' => $user,
+            'orders' => $orders,
         ]);
     }
+
     #[Route('/edit', name: 'app_profile_edit')]
     #[IsGranted('ROLE_USER')]
     public function edit(
@@ -38,7 +48,6 @@ class ProfileController extends AbstractController
         
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // Handle image upload - using 'profileImage' field
             $imageFile = $form->get('profileImage')->getData();
             
             if ($imageFile) {
@@ -52,7 +61,6 @@ class ProfileController extends AbstractController
                         $newFilename
                     );
                     
-                    // Delete old image if exists
                     if ($user->getImage()) {
                         $oldImage = $this->getParameter('profile_images_directory').'/'.$user->getImage();
                         if (file_exists($oldImage)) {

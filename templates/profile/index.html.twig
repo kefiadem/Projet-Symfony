@@ -3,7 +3,7 @@
 {% block title %}Your Profile{% endblock %}
 
 {% block body %}
-    <div class="container py-5">
+    <div class="container py-5" style="margin-top: 60px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card shadow">
@@ -44,8 +44,46 @@
                             <a href="{{ path('app_profile_edit') }}" class="btn btn-dark">
                                 <i class="bi bi-pencil me-2"></i>Edit Profile
                             </a>
-
                         </div>
+
+                        {# New Section: Ongoing Orders #}
+                        <hr class="my-5">
+
+                        <h2 class="h5 mb-4">Ongoing Orders</h2>
+
+                        {% if orders is not empty %}
+                            <div class="list-group">
+                                {% for order in orders %}
+                                    <div class="list-group-item mb-3 shadow-sm rounded">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <strong>Order #{{ order.id }}</strong>
+                                            <span class="badge bg-info text-dark">Ongoing</span>
+                                        </div>
+
+                                        <div class="mt-2">
+                                            <p><strong>Total Price:</strong> ${{ order.totalPrice ?: 'N/A' }}</p>
+                                            <p><strong>Shipping Address:</strong> {{ order.shippingAddress }}</p>
+                                            <p><strong>Payment Method:</strong> {{ order.paymentMethod|capitalize }}</p>
+
+                                            <p><strong>Buyer Name:</strong> {{ order.buyerFullName ?: 'N/A' }}</p>
+                                            <p><strong>Buyer Email:</strong> {{ order.buyerEmail }}</p>
+                                            <p><strong>Buyer Phone:</strong> {{ order.buyerPhone }}</p>
+
+                                            <strong>Items:</strong>
+                                            <ul>
+                                                {% for item in order.orderItems %}
+                                                    <li>{{ item.productName ?: 'Unnamed item' }} - Quantity: {{ item.quantity ?: 1 }}</li>
+                                                {% else %}
+                                                    <li>No items in this order.</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p class="text-muted">You have no ongoing orders.</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

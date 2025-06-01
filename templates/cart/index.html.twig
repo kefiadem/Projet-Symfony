@@ -3,8 +3,8 @@
 {% block title %}Shopping Cart{% endblock %}
 
 {% block body %}
-<div class="cart-page">
-    <div class="cart-card">
+<div class="cart-page" >
+    <div class="cart-card" style="margin-top: 80px;">
         <div class="row">
             <div class="col-md-8 cart-section">
                 <div class="cart-title">
@@ -74,7 +74,7 @@
                     <div class="col">TOTAL PRICE</div>
                     <div class="col text-right">&euro; {{ (total + 5)|number_format(2, '.', ',') }}</div>
                 </div>
-                <a href="#" class="btn">CHECKOUT</a>
+                <a href="{{ path('checkout')}}" class="btn">CHECKOUT</a>
             </div>
         </div>
     </div>
