@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product Search{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section class="product-grid py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10 my-4">
+                    <form method="get" action="{{ path('product_search') }}" class="row g-3 align-items-end justify-content-center mb-4">
+                        <div class="col-auto">
+                            <label for="category" class="form-label">Category</label>
+                            <select name="category" id="category" class="form-select">
+                                <option value="" {% if not category %}selected{% endif %}>All</option>
+                                {% for cat in categories %}
+                                    <option value="{{ cat }}" {% if cat == category %}selected{% endif %}>{{ cat|capitalize }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <label for="keywords" class="form-label">Keywords</label>
+                            <input type="text" name="keywords" id="keywords" class="form-control" value="{{ keywords|default('') }}">
+                        </div>
+                        <div class="col-auto">
+                            <label for="minPrice" class="form-label">Min Price</label>
+                            <input type="number" step="0.01" name="minPrice" id="minPrice" class="form-control" value="{{ minPrice|default('') }}">
+                        </div>
+                        <div class="col-auto">
+                            <label for="maxPrice" class="form-label">Max Price</label>
+                            <input type="number" step="0.01" name="maxPrice" id="maxPrice" class="form-control" value="{{ maxPrice|default('') }}">
+                        </div>
+                        <div class="col-auto">
+                            <label for="minRating" class="form-label">Min Rating</label>
+                            <input type="number" min="0" max="5" name="minRating" id="minRating" class="form-control" value="{{ minRating|default('') }}">
+                        </div>
+                        <div class="col-auto">
+                            <label for="order" class="form-label">Order By</label>
+                            <select name="order" id="order" class="form-select">
+                                <option value="price" {% if orderBy == 'price' %}selected{% endif %}>Price</option>
+                                <option value="review" {% if orderBy == 'review' %}selected{% endif %}>Review</option>
+                                <option value="ReleaseDate" {% if orderBy == 'ReleaseDate' %}selected{% endif %}>Release Date</option>
+                                <option value="name" {% if orderBy == 'name' %}selected{% endif %}>Name</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <label for="direction" class="form-label">Direction</label>
+                            <select name="direction" id="direction" class="form-select">
+                                <option value="ASC" {% if direction == 'ASC' %}selected{% endif %}>Ascending</option>
+                                <option value="DESC" {% if direction == 'DESC' %}selected{% endif %}>Descending</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="grid p-0 clearfix">
+                    {% for product in products %}
+                        <div class="product-item link-effect">
+                            <div class="image-holder position-relative">
+                                <a href="{{ path('id_product', { id: product.id }) }}">
+                                    <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="product-image img-fluid">
+                                </a>
+                                <a href="#" class="btn-icon btn-wishlist rounded-circle add-to-wishlist" data-product-id="{{ product.id }}">
+                                    <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
+                                </a>
+                                <div class="product-content">
+                                    <h5 class="text-uppercase fs-5 mt-3">
+                                        <a href="{{ path('id_product', { id: product.id }) }}" class="text-dark">{{ product.name }}</a>
+                                    </h5>
+                                    <a href="{{ path('cart_add', {productId: product.id}) }}" class="text-decoration-none text-dark" data-after="Add to cart"><span>${{ product.price }}</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <p class="text-center w-100">No products found{% if category %} for category <strong>{{ category }}</strong>{% endif %}.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
