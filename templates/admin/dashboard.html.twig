@@ -49,31 +49,11 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Orders Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
-        </a>
+       
     </div>
 
     <!-- Content Row -->
-    <div class="row">
-        <!-- Order Count Card -->
-        <div class="col-xl-12 col-md-12 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Order Number (Total)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ order_count }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Current Orders Table -->
     <div class="card shadow mb-4">
@@ -128,9 +108,32 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-sm">
-                                        <i class="fas fa-eye"></i> View
-                                    </a>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton{{ loop.index }}" data-bs-toggle="dropdown" aria-expanded="false">
+    
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ loop.index }}">
+                                            <li>
+                                                <a class="dropdown-item text-info" href="/admin/order/view/{{ order.id }}">
+                                                    <i class="fas fa-eye"></i> View
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-success" href="/admin/order/status/{{ order.id }}">
+                                                    <i class="fas fa-cog"></i> ChangeStatus
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <form method="post" action="{{ path('app.admin_order_remove', {'id': order.id}) }}" onsubmit="return confirm('Are you sure you want to remove this order?');" style="display:inline;">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete-order' ~ order.id) }}">
+                                                <button class="dropdown-item text-danger" type="submit">
+                                                    <i class="fas fa-trash"></i> Remove
+                                                </button>
+                                            </form>
+
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         {% else %}

@@ -1,0 +1,29 @@
+<h2>Order Details</h2>
+<p><strong>Buyer:</strong> {{ order.buyerFullName }}</p>
+<p><strong>Email:</strong> {{ order.buyerEmail }}</p>
+<p><strong>Phone:</strong> {{ order.buyerPhone }}</p>
+<p><strong>Status:</strong> {{ order.status }}</p>
+
+<h3>Items</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Price (each)</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order.orderItems %}
+            <tr>
+                <td>{{ item.productName }}</td>
+                <td>{{ item.productPrice }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.productPrice * item.quantity }}</td>
+            </tr>
+        {% else %}
+            <tr><td colspan="4">No items in this order.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>

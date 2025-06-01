@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Orders;
 use App\Entity\MenProducts;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Form\ProductsForm;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
@@ -148,7 +149,70 @@ final class AdminController extends AbstractController
         return $this->render('admin/updateproduct.html.twig', [
             'form' => $form->createView()
         ]);
+        }
+        
     }
+    #[Route('/order/view/{id}', name: '_order_view')]
+    public function viewOrder($id, EntityManagerInterface $em): Response
+{
+    $order = $em->getRepository(Orders::class)->find($id);
+    
+    if (!$order) {
+        throw $this->createNotFoundException('Order not found');
     }
-  
+
+    return $this->render('admin/order_view.html.twig', [
+        'order' => $order,
+        'orderItems' => $order->getOrderItems(), // <- optional, but clear
+    ]);
+}
+    #[Route('/order/status/{id}', name: '_order_status_change')]
+    public function changeStatus($id, Request $request, EntityManagerInterface $em): RedirectResponse
+{
+    $order = $em->getRepository(Orders::class)->find($id);
+    if (!$order) {
+        throw $this->createNotFoundException('Order not found');
+    }
+
+    // Toggle status (example: 'pending' <-> 'completed')
+    $oldstatus = $order->getStatus();
+    if ($oldstatus === 'Pending') {
+        $newStatus = 'Delivering';
+    }
+    else if ($oldstatus === 'Delivering') {
+        $newStatus = 'Delivered';
+    }
+    else {
+        $newStatus = 'Pending';
+    }
+    $order->setStatus($newStatus);
+
+    $em->persist($order);
+    $em->flush();
+
+    return $this->redirectToRoute('app.admin_panel');
+}
+#[Route('/order/remove/{id}', name: '_order_remove', methods: ['POST'])]
+public function removeOrder(int $id, EntityManagerInterface $em, Request $request): RedirectResponse
+{
+    // CSRF token check for security
+    $submittedToken = $request->request->get('_token');
+    if (!$this->isCsrfTokenValid('delete-order'.$id, $submittedToken)) {
+        $this->addFlash('error', 'Invalid CSRF token.');
+        return $this->redirectToRoute('app.admin_panel');
+    }
+
+    $order = $em->getRepository(Orders::class)->find($id);
+    if (!$order) {
+        $this->addFlash('error', 'Order not found.');
+        return $this->redirectToRoute('app.admin_panel');
+    }
+
+    $em->remove($order);
+    $em->flush();
+
+    $this->addFlash('success', 'Order #' . $id . ' removed successfully.');
+
+    return $this->redirectToRoute('app.admin_panel');
+}
 }
