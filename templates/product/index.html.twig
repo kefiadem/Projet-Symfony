@@ -67,14 +67,11 @@
                                 <a href="#" class="btn-icon btn-wishlist rounded-circle">
                                     <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
                                 </a>
-                                <a href="{{ path('cart_add', {productId: product.id}) }}" class="btn-icon btn-cart rounded-circle">
-                                    <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
-                                </a>
                                 <div class="product-content">
                                     <h5 class="text-uppercase fs-5 mt-3">
                                         <a href="{{ path('id_product', { id: product.id }) }}" class="text-dark">{{ product.name }}</a>
                                     </h5>
-                                    <span>€{{ product.price }}</span>
+                                    <a href="{{ path('cart_add', {productId: product.id}) }}" class="text-decoration-none text-dark" data-after="Add to cart"><span>${{ product.price }}</span></a>
 
                                 </div>
                             </div>

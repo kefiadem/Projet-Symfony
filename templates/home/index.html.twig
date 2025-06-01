@@ -191,7 +191,7 @@
                                     <h5 class="text-uppercase fs-5 mt-3">
                                         <a href="{{ path('id_product', { id: product.id }) }}" class="text-dark">{{ product.name }}</a>
                                     </h5>
-                                    <a href="#" class="text-decoration-none text-dark" data-after="Add to cart"><span>${{ product.price }}</span></a>
+                                    <a href="{{ path('cart_add', {productId: product.id}) }}" class="text-decoration-none text-dark" data-after="Add to cart"><span>${{ product.price }}</span></a>
                                 </div>
                             </div>
                         </div>
