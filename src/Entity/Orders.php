@@ -40,6 +40,9 @@ class Orders
     #[ORM\Column(length: 255)]
     private ?string $paymentMethod = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $status = null;
+
     public function __construct()
     {
         $this->orderItems = new ArrayCollection();
@@ -154,6 +157,18 @@ class Orders
     public function setPaymentMethod(string $paymentMethod): static
     {
         $this->paymentMethod = $paymentMethod;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }

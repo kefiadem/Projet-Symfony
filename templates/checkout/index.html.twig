@@ -7,15 +7,7 @@
         <h1 class="checkout-title">Checkout</h1>
 
         {# Flash messages #}
-        <div class="checkout-flashes">
-            {% for label, messages in app.flashes %}
-                {% for message in messages %}
-                    <div class="checkout-alert checkout-alert-{{ label }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-        </div>
+
 
         <section class="checkout-cart">
             <h2 class="checkout-subtitle">Your Cart Items</h2>

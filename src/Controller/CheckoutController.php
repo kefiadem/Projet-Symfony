@@ -38,6 +38,7 @@ final class CheckoutController extends AbstractController
 
         $order = new Orders();
         $order->setBuyerEmail($user->getEmail());
+        $order->setStatus('Pending');
         $totalPrice = 0;
         foreach ($cartItems as $cartItem) {
             $totalPrice += $cartItem->getProduct()->getPrice() * $cartItem->getQuantity();
@@ -61,7 +62,6 @@ final class CheckoutController extends AbstractController
                 $em->persist($orderItem);
             }
 
-            // Remove items from cart (clear cart)
             foreach ($cartItems as $cartItem) {
                 $em->remove($cartItem);
             }
@@ -69,7 +69,6 @@ final class CheckoutController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Order placed successfully!');
-
             return $this->redirectToRoute('app_home');
         }
 

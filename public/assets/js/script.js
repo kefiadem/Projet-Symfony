@@ -250,11 +250,3 @@
 })(jQuery)
 
 
-
-function showCartToast() {
-    var toastEl = document.getElementById('cartToast');
-    if (toastEl) {
-        var toast = new bootstrap.Toast(toastEl, { delay: 2500 });
-        toast.show();
-    }
-}
