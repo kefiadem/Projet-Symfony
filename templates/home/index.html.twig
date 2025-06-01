@@ -65,28 +65,28 @@
                     <div class="py-md-3">
                         <svg class="text-secondary" width="75" height="75"><use xlink:href="#random-1"></use></svg>
                         <h4 class="text-dark text-capitalize my-3">100% Genuine Leather</h4>
-                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+
                     </div>
                 </div>
                 <div class="col-md-3 text-dark" data-aos="fade-in" data-aos-delay="300">
                     <div class="py-md-3">
                         <svg class="text-secondary" width="75" height="75"><use xlink:href="#random-2"></use></svg>
                         <h4 class="text-dark text-capitalize my-3">Hand-Stitched Perfection</h4>
-                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+
                     </div>
                 </div>
                 <div class="col-md-3 text-dark" data-aos="fade-in" data-aos-delay="600">
                     <div class="py-md-3">
                         <svg class="text-secondary" width="75" height="75"><use xlink:href="#random-3"></use></svg>
                         <h4 class="text-dark text-capitalize my-3">Minimalist</h4>
-                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+
                     </div>
                 </div>
                 <div class="col-md-3 text-dark" data-aos="fade-in" data-aos-delay="900">
                     <div class="py-md-3">
                         <svg class="text-secondary" width="75" height="75"><use xlink:href="#random-4"></use></svg>
                         <h4 class="text-dark text-capitalize my-3">Functional Designs</h4>
-                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+
                     </div>
                 </div>
             </div>
@@ -95,28 +95,28 @@
                     <div class="py-md-3">
                         <svg class="text-secondary" width="75" height="75"><use xlink:href="#random-5"></use></svg>
                         <h4 class="text-dark text-capitalize my-3">Ethically Crafted</h4>
-                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+
                     </div>
                 </div>
                 <div class="col-md-3 text-dark" data-aos="fade-in" data-aos-delay="300">
                     <div class="py-md-3">
                         <svg class="text-secondary" width="75" height="75"><use xlink:href="#random-6"></use></svg>
                         <h4 class="text-dark text-capitalize my-3">Free Worldwide Shipping</h4>
-                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+
                     </div>
                 </div>
                 <div class="col-md-3 text-dark" data-aos="fade-in" data-aos-delay="600">
                     <div class="py-md-3">
                         <svg class="text-secondary" width="75" height="75"><use xlink:href="#random-7"></use></svg>
                         <h4 class="text-dark text-capitalize my-3">Easy Returns</h4>
-                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+
                     </div>
                 </div>
                 <div class="col-md-3 text-dark" data-aos="fade-in" data-aos-delay="900">
                     <div class="py-md-3">
                         <svg class="text-secondary" width="75" height="75"><use xlink:href="#random-8"></use></svg>
                         <h4 class="text-dark text-capitalize my-3">Sustainable</h4>
-                        <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+
                     </div>
                 </div>
             </div>
@@ -209,108 +209,18 @@
         </div>
         <div class="swiper testimonial-swiper overflow-hidden">
             <div class="swiper-wrapper d-flex">
+                {% for review in reviews %}
                 <div class="swiper-slide">
                     <div class="testimonial-item text-center">
                         <blockquote>
-                            <p>“More than expected crazy soft, flexible and best fitted white simple denim shirt.”</p>
-                            <div class="review-title text-uppercase">casual way</div>
+                            <p>“{{ review.text }}”</p>
+                            <div class="review-title text-uppercase">{{ review.user.username }}</div>
                         </blockquote>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-item text-center">
-                        <blockquote>
-                            <p>“Best fitted white denim shirt more than expected crazy soft, flexible</p>
-                            <div class="review-title text-uppercase">uptop</div>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-item text-center">
-                        <blockquote>
-                            <p>“Best fitted white denim shirt more white denim than expected flexible crazy soft.”</p>
-                            <div class="review-title text-uppercase">Denim craze</div>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-item text-center">
-                        <blockquote>
-                            <p>“Best fitted white denim shirt more than expected crazy soft, flexible</p>
-                            <div class="review-title text-uppercase">uptop</div>
-                        </blockquote>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <section class="blog bg-white text-dark py-5">
-        <div class="container">
-            <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-                <h4 class="text-uppercase text-dark">Read Blog Posts</h4>
-                <a href="blog-classic.html" class="btn-link text-dark">View All</a>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <article class="post-item">
-                        <div class="post-image">
-                            <a href="single-post.html">
-                                <img src="{{ asset('assets/images/post-image1.jpg') }}" alt="image" class="post-grid-image img-fluid">
-                            </a>
-                        </div>
-                        <div class="post-content d-flex flex-wrap gap-2 my-3">
-                            <div class="post-meta text-uppercase fs-6 text-muted">
-                                <span class="post-category">Fashion /</span>
-                                <span class="meta-day"> jul 11, 2022</span>
-                            </div>
-                            <h5 class="post-title text-uppercase">
-                                <a href="#" class="text-dark">How to look outstanding in pastel</a>
-                            </h5>
-                            <p>Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="post-item">
-                        <div class="post-image">
-                            <a href="single-post.html">
-                                <img src="{{ asset('assets/images/post-image2.jpg') }}" alt="image" class="post-grid-image img-fluid">
-                            </a>
-                        </div>
-                        <div class="post-content d-flex flex-wrap gap-2 my-3">
-                            <div class="post-meta text-uppercase fs-6 text-muted">
-                                <span class="post-category">Fashion /</span>
-                                <span class="meta-day"> jul 11, 2022</span>
-                            </div>
-                            <h5 class="post-title text-uppercase">
-                                <a href="#" class="text-dark">Top 10 fashion trend for summer</a>
-                            </h5>
-                            <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="post-item">
-                        <div class="post-image">
-                            <a href="single-post.html">
-                                <img src="{{ asset('assets/images/post-image3.jpg') }}" alt="image" class="post-grid-image img-fluid">
-                            </a>
-                        </div>
-                        <div class="post-content d-flex flex-wrap gap-2 my-3">
-                            <div class="post-meta text-uppercase fs-6 text-muted">
-                                <span class="post-category">Fashion /</span>
-                                <span class="meta-day"> jul 11, 2022</span>
-                            </div>
-                            <h5 class="post-title text-uppercase">
-                                <a href="single-post.html" class="text-dark">Crazy fashion with unique moment</a>
-                            </h5>
-                            <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -319,17 +229,18 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 py-5 my-5">
                     <div class="subscribe-header text-center pb-3">
-                        <h3 class="section-title text-uppercase text-white">Sign Up for Our Newsletter</h3>
+                        <h3 class="section-title text-uppercase text-white">We’d love to hear from you! Share your experience with us</h3>
                     </div>
-                    <form id="form" class="d-flex flex-wrap gap-2">
-                        <input type="text" name="email" placeholder="Your Email Addresss" class="form-control form-control-lg bg-white rounded-0">
-                        <button class="btn btn-primary btn-lg text-uppercase w-100">Sign Up</button>
+                    <form id="form" class="d-flex flex-wrap gap-2" method="post" action="{{ path('add_review') }}">
+                        <input type="text" name="email" placeholder="Leave your review here" class="form-control form-control-lg bg-white rounded-0">
+                        <button class="btn btn-primary btn-lg text-uppercase w-100">Submit Review</button>
                     </form>
                 </div>
             </div>
         </div>
         <img src="{{ asset('assets/images/bg-newsletter.jpg') }}" alt="newsletter" class="jarallax-img img-fluid" />
     </section>
+
 
     <section class="instagram bg-black py-5" data-bs-theme="dark">
         <div class="container-fluid">
