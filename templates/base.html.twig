@@ -172,4 +172,78 @@
 
 </body>
 </html>
+<script>
+    function showCartToast() {
+        var toastEl = document.getElementById('cartToast');
+        if (toastEl) {
+            var toast = new bootstrap.Toast(toastEl, { delay: 2500 });
+            toast.show();
+        }
+    }
+</script>
+
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x mt-5 p-3" style="z-index: 1080;">
+    <div id="wishlistToastAdded" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">Product added to your wishlist!</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x mt-5 p-3" style="z-index: 1080;">
+    <div id="wishlistToastExists" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">Product already in your wishlist!</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showWishlistToast(type) {
+    let toastId = null;
+
+    if (type === 'added') {
+        toastId = 'wishlistToastAdded';
+    } else if (type === 'exists') {
+        toastId = 'wishlistToastExists';
+    }
+
+    if (toastId) {
+        const toastEl = document.getElementById(toastId);
+        if (toastEl) {
+            const toast = new bootstrap.Toast(toastEl, { delay: 2000 });
+            toast.show();
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.add-to-wishlist').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            const productId = this.dataset.productId;
+
+            fetch('/wishlist/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: new URLSearchParams({ productId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'added') {
+                    showWishlistToast('added');
+                } else if (data.status === 'exists') {
+                    showWishlistToast('exists');
+                }
+                // You can handle other statuses here if needed
+            });
+        });
+    });
+});
+</script>
 
