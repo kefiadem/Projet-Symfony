@@ -35,7 +35,8 @@
                             <td>{{ product.id }}</td>
                             <td>
                                 {% if product.image %}
-                                <img src="{{ asset('assets/uploads/products/' ~ product.image) }}" 
+                                
+                                <img src="{{ asset('' ~ product.image) }}"
                                      alt="{{ product.name }}" 
                                      style="max-height: 50px">
                                 {% else %}
