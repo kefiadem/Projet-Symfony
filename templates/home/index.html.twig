@@ -180,7 +180,7 @@
                         {% set classes = [] %}
                         {% if product.review >= 4 %}{% set classes = classes|merge(['bestreviewed']) %}{% endif %}
                         {% if date(product.ReleaseDate) > date('-30days') %}{% set classes = classes|merge(['newarrivals']) %}{% endif %}
-                        {% if product.stock < 10 %}{% set classes = classes|merge(['bestsellers']) %}{% endif %}
+                        {% if product.stock < 1000 %}{% set classes = classes|merge(['bestsellers']) %}{% endif %}
 
                         <div class="col-md-3 py-3 product-item link-effect  {{ classes|join(' ') }} ">
                             <div class="image-holder position-relative m-3">
